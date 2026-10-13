@@ -1,7 +1,27 @@
 {
-"vehicles": [],
-"owners": [],
-"inspections": [],
-"licenses": [],
-"fines": []
+"settings": {
+"name": "CSDD Tiesību Sistēma",
+"version": "1.0",
+"license_categories": ["A", "B", "C", "D"]
+},
+"drivers": [
+{
+"id": 1,
+"username": "Speletajs123",
+"license_category": "B",
+"theory_exam": "passed",
+"driving_exam": "passed",
+"license_status": "active",
+"issue_date": "2026-10-14"
+},
+{
+"id": 2,
+"username": "Speletajs456",
+"license_category": "A",
+"theory_exam": "passed",
+"driving_exam": "failed",
+"license_status": "not_issued",
+"issue_date": null
+}
+]
 }
