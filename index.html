@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CPM1 | Transportlīdzekļu e-pakalpojumi</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f1f3f5;color:#252525}
+.notice{background:#fff0d0;color:#704b00;text-align:center;padding:10px;font-size:12px}
+header{background:white;border-bottom:4px solid #bd2026;padding:22px 5%}
+.logo{font-size:28px;font-weight:bold;color:#163c63}
+.logo span{color:#bd2026}
+.subtitle{color:#666;font-size:13px;margin-top:5px}
+nav{background:#163c63;padding:0 5%;display:flex;flex-wrap:wrap}
+nav button{background:none;border:0;color:white;padding:17px 15px;cursor:pointer;font-size:14px}
+nav button:hover,nav button.active{background:#28557e}
+main{max-width:1150px;margin:30px auto;padding:0 20px}
+h1{font-size:27px;color:#163c63}
+h2{font-size:21px;color:#163c63}
+p{line-height:1.6}
+.muted{color:#687583}
+.panel{background:white;border:1px solid #d8dee5;border-radius:4px;padding:22px;margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:white;border:1px solid #d8dee5;border-top:3px solid #bd2026;border-radius:4px;padding:20px}
+.card h3{color:#163c63;margin-top:0}
+button,.button{cursor:pointer}
+.btn{background:#1d527f;color:white;border:0;padding:11px 15px;border-radius:3px;font-size:14px}
+.btn:hover{background:#163c63}
+.btn.red{background:#bd2026}
+input,select{width:100%;padding:11px;border:1px solid #cbd2d9;border-radius:3px;margin:7px 0 15px}
+label{font-size:13px;font-weight:bold;color:#163c63}
+.page{display:none}
+.page.active{display:block}
+table{width:100%;border-collapse:collapse;background:white}
+th,td{text-align:left;padding:12px;border-bottom:1px solid #ddd;font-size:14px}
+th{background:#e9edf1;color:#163c63}
+.table-wrap{overflow-x:auto}
+.status{color:#187341;font-weight:bold}
+footer{text-align:center;background:#e6e9ed;padding:25px;color:#59636e;font-size:12px;line-height:1.7;margin-top:40px}
+#message{display:none;padding:12px;background:#e2f4e8;color:#176335;margin-bottom:15px}
+@media(max-width:600px){nav button{padding:13px 9px;font-size:12px}main{padding:0 12px}.panel{padding:16px}}
+</style>
+</head>
+<body>
+
+<div class="notice">
+CPM1 ROLEPLAY — NEOFICIĀLS SPĒLES PROJEKTS. Šī nav īstā CSDD vietne.
+</div>
+
+<header>
+<div class="logo"><span>CPM1</span> | e-Pakalpojumi</div>
+<div class="subtitle">Transportlīdzekļu un vadītāju informācijas sistēma</div>
+</header>
+
+<nav>
+<button class="active" onclick="openPage('home',this)">Sākums</button>
+<button onclick="openPage('cars',this)">Transportlīdzekļi</button>
+<button onclick="openPage('inspection',this)">Tehniskā apskate</button>
+<button onclick="openPage('license',this)">Vadītāja apliecība</button>
+<button onclick="openPage('fines',this)">Sodi un maksājumi</button>
+<button onclick="openPage('profile',this)">Mans profils</button>
+</nav>
+
+<main>
+<div id="message"></div>
+
+<section id="home" class="page active">
+<div class="panel">
+<h1>Transportlīdzekļu e-pakalpojumi</h1>
+<p class="muted">Laipni lūdzam CPM1 Roleplay transportlīdzekļu sistēmā. Šeit vari pārvaldīt savus spēles transportlīdzekļus, apskatīt tehniskās apskates statusu un pārbaudīt sodus.</p>
+</div>
+<div class="grid">
+<div class="card">
+<h3>🚘 Mani transportlīdzekļi</h3>
+<p>Reģistrē un pārvaldi savus spēles transportlīdzekļus.</p>
+<button class="btn" onclick="openPage('cars')">Atvērt</button>
+</div>
+<div class="card">
+<h3>🔧 Tehniskā apskate</h3>
+<p>Apskati transportlīdzekļu tehniskās apskates statusu.</p>
+<button class="btn" onclick="openPage('inspection')">Pārbaudīt</button>
+</div>
+<div class="card">
+<h3>🪪 Vadītāja apliecība</h3>
+<p>Pārbaudi savu spēles vadītāja apliecību un kategorijas.</p>
+<button class="btn" onclick="openPage('license')">Apliecības dati</button>
+</div>
+<div class="card">
+<h3>🚨 Sodi un maksājumi</h3>
+<p>Apskati un pārvaldi lomu spēles sodus.</p>
+<button class="btn" onclick="openPage('fines')">Atvērt sodus</button>
+</div>
+</div>
+</section>
+
+<section id="cars" class="page">
+<div class="panel">
+<h1>Mani transportlīdzekļi</h1>
+<p class="muted">Šeit pievienotie dati ir paredzēti tikai spēles vajadzībām.</p>
+<h3>Reģistrēt jaunu transportlīdzekli</h3>
+<form id="carForm">
+<label>Marka un modelis</label>
+<input id="carName" placeholder="BMW M3" required>
+<label>Spēles numurzīme</label>
+<input id="carPlate" placeholder="CPM-123" required>
+<label>Izlaiduma gads</label>
+<input id="carYear" type="number" min="1950" max="2026" value="2020" required>
+<button class="btn" type="submit">Reģistrēt transportlīdzekli</button>
+</form>
+</div>
+<div class="panel">
+<h2>Reģistrētie transportlīdzekļi</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Marka</th><th>Numurzīme</th><th>Gads</th><th>Darbība</th></tr></thead>
+<tbody id="carRows"></tbody>
+</table>
+</div>
+</div>
+</section>
+
+<section id="inspection" class="page">
+<div class="panel">
+<h1>Tehniskā apskate</h1>
+<p>Transportlīdzekļu apskates statuss CPM1 Roleplay spēles vidē.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Transportlīdzeklis</th><th>Numurzīme</th><th>Statuss</th><th>Darbība</th></tr></thead>
+<tbody id="inspectionRows"></tbody>
+</table>
+</div>
+</div>
+</section>
+
+<section id="license" class="page">
+<div class="panel">
+<h1>Vadītāja apliecība</h1>
+<p class="muted">Spēles profila vadītāja apliecības informācija.</p>
+<label>Vārds, uzvārds</label>
+<input id="driverName" placeholder="Vārds Uzvārds">
+<label>Vadītāja kategorija</label>
+<select id="driverCategory">
+<option>B</option><option>A</option><option>BE</option><option>C</option><option>CE</option><option>D</option>
+</select>
+<label>Apliecības statuss</label>
+<select id="driverStatus">
+<option>Derīga</option><option>Apturēta</option><option>Nav iegūta</option>
+</select>
+<button class="btn" onclick="saveLicense()">Saglabāt apliecības datus</button>
+</div>
+</section>
+
+<section id="fines" class="page">
+<div class="panel">
+<h1>Sodi un maksājumi</h1>
+<p class="muted">Spēles sodu uzskaite. Reāli maksājumi netiek veikti.</p>
+<form id="fineForm">
+<label>Pārkāpuma apraksts</label>
+<input id="fineReason" placeholder="Ātruma pārsniegšana" required>
+<label>Soda summa (€ spēles uzskaitē)</label>
+<input id="fineAmount" type="number" min="1" max="100000" required>
+<button class="btn" type="submit">Pievienot sodu</button>
+</form>
+</div>
+<div class="panel">
+<h2>Sodu saraksts</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Pārkāpums</th><th>Summa</th><th>Statuss</th><th>Darbība</th></tr></thead>
+<tbody id="fineRows"></tbody>
+</table>
+</div>
+</div>
+</section>
+
+<section id="profile" class="page">
+<div class="panel">
+<h1>Mans profils</h1>
+<label>Spēles vārds vai lietotājvārds</label>
+<input id="profileName" placeholder="Ievadi savu spēles vārdu">
+<button class="btn" onclick="saveProfile()">Saglabāt profilu</button>
+<p id="profileInfo" class="muted"></p>
+</div>
+</section>
+</main>
+
+<footer>
+<strong>CPM1 Roleplay e-pakalpojumi</strong><br>
+Neoficiāls spēles projekts, kas nav saistīts ar CSDD vai Latvijas valsts iestādēm.<br>
+Visi ieraksti ir paredzēti lomu spēlei un tiek saglabāti tikai šajā pārlūkā.
+</footer>
+
+<script>
+const KEY='cpm1_csdd_demo_v1';
+let db;
+try {
+ db=JSON.parse(localStorage.getItem(KEY))||{cars:[],fines:[],license:{name:'',category:'B',status:'Nav iegūta'},profile:''};
+} catch(e) {
+ db={cars:[],fines:[],license:{name:'',category:'B',status:'Nav iegūta'},profile:''};
+}
+function persist(){localStorage.setItem(KEY,JSON.stringify(db));render();}
+function notify(text){const el=document.getElementById('message');el.textContent=text;el.style.display='block';setTimeout(()=>el.style.display='none',3000);}
+function openPage(id,btn){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ if(btn)btn.classList.add('active');
+}
+function safe(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+document.getElementById('carForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ const name=document.getElementById('carName').value.trim();
+ const plate=document.getElementById('carPlate').value.trim().toUpperCase();
+ if(db.cars.some(c=>c.plate===plate)){notify('Šī numurzīme jau ir reģistrēta šajā pārlūkā.');return;}
+ db.cars.push({id:Date.now(),name,plate,year:document.getElementById('carYear').value,inspection:'Jāveic'});
+ e.target.reset();persist();notify('Transportlīdzeklis pievienots spēles uzskaitei.');
+});
+function removeCar(id){if(confirm('Dzēst šo spēles transportlīdzekli?')){db.cars=db.cars.filter(c=>c.id!==id);persist();}}
+function setInspection(id){
+ const car=db.cars.find(c=>c.id===id);if(!car)return;
+ const s=prompt('Ievadi apskates statusu: Derīga / Nav derīga / Jāveic',car.inspection);
+ if(s===null)return;
+ if(!['Derīga','Nav derīga','Jāveic'].includes(s.trim())){notify('Izvēlies Derīga, Nav derīga vai Jāveic.');return;}
+ car.inspection=s.trim();persist();notify('Spēles apskates statuss atjaunots.');
+}
+document.getElementById('fineForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ db.fines.push({id:Date.now(),reason:document.getElementById('fineReason').value.trim(),amount:Number(document.getElementById('fineAmount').value),paid:false});
+ e.target.reset();persist();notify('Spēles sods pievienots.');
+});
+function payFine(id){const f=db.fines.find(x=>x.id===id);if(f&&!f.paid&&confirm('Atzīmēt sodu kā apmaksātu spēles uzskaitē?')){f.paid=true;persist();notify('Sods atzīmēts kā apmaksāts.');}}
+function saveLicense(){
+ db.license={name:document.getElementById('driverName').value.trim(),category:document.getElementById('driverCategory').value,status:document.getElementById('driverStatus').value};
+ persist();notify('Spēles apliecības dati saglabāti.');
+}
+function saveProfile(){
+ db.profile=document.getElementById('profileName').value.trim();persist();notify('Spēles profils saglabāts.');
+}
+function render(){
+ document.getElementById('carRows').innerHTML=db.cars.length?db.cars.map(c=>`<tr><td>${safe(c.name)}</td><td>${safe(c.plate)}</td><td>${safe(c.year)}</td><td><button class="btn" onclick="removeCar(${c.id})">Dzēst</button></td></tr>`).join(''):'<tr><td colspan="4">Nav pievienotu transportlīdzekļu.</td></tr>';
+ document.getElementById('inspectionRows').innerHTML=db.cars.length?db.cars.map(c=>`<tr><td>${safe(c.name)}</td><td>${safe(c.plate)}</td><td>${safe(c.inspection)}</td><td><button class="btn" onclick="setInspection(${c.id})">Mainīt statusu</button></td></tr>`).join(''):'<tr><td colspan="4">Nav transportlīdzekļu datu.</td></tr>';
+ document.getElementById('fineRows').innerHTML=db.fines.length?db.fines.map(f=>`<tr><td>${safe(f.reason)}</td><td>${f.amount.toFixed(2)} €</td><td>${f.paid?'Apmaksāts':'Neapmaksāts'}</td><td>${f.paid?'—':`<button class="btn" onclick="payFine(${f.id})">Apmaksāt spēlē</button>`}</td></tr>`).join(''):'<tr><td colspan="4">Sodu nav.</td></tr>';
+ document.getElementById('driverName').value=db.license.name||'';
+ document.getElementById('driverCategory').value=db.license.category||'B';
+ document.getElementById('driverStatus').value=db.license.status||'Nav iegūta';
+ document.getElementById('profileName').value=db.profile||'';
+ document.getElementById('profileInfo').textContent=db.profile?'Profils: '+db.profile:'Profils vēl nav saglabāts.';
+}
+render();
+</script>
+</body>
+</html>
