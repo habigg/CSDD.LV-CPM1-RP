@@ -3,20 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CPM1 Roleplay | CSDD</title>
+<title>CPM1 | CSDD Roleplay</title>
 
 <style>
 :root {
-  --bg: #0b1120;
-  --sidebar: #101a2d;
-  --panel: #151f33;
-  --panel2: #1c2941;
-  --border: #2b3b56;
-  --text: #f2f5fa;
-  --muted: #9eacc2;
-  --green: #36d6a0;
-  --red: #ff6878;
-  --yellow: #ffd166;
+  --bg: #f2f5f9;
+  --white: #ffffff;
+  --nav: #142b4a;
+  --nav-hover: #203e64;
+  --blue: #2878e8;
+  --text: #1b2b41;
+  --muted: #718096;
+  --border: #dfe6ef;
+  --green: #15966a;
+  --red: #d94352;
+  --orange: #b7791f;
 }
 
 * { box-sizing: border-box; }
@@ -24,239 +25,269 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: var(--bg);
   color: var(--text);
+  background: var(--bg);
 }
 
-button, input, select, textarea {
-  font: inherit;
-}
+button, input, select, textarea { font: inherit; }
 
 button { cursor: pointer; }
 
-.layout {
-  min-height: 100vh;
+.app {
   display: grid;
   grid-template-columns: 245px minmax(0, 1fr);
+  min-height: 100vh;
 }
 
 .sidebar {
-  background: var(--sidebar);
-  border-right: 1px solid var(--border);
+  background: var(--nav);
+  color: white;
   padding: 24px 15px;
 }
 
-.brand {
-  font-size: 22px;
+.logo {
+  font-size: 24px;
   font-weight: 800;
+  padding: 5px 10px;
+}
+
+.logo span { color: #71b3ff; }
+
+.sublogo {
+  color: #b7c8df;
+  font-size: 12px;
   padding: 8px 10px 25px;
 }
 
-.brand span { color: var(--green); }
-
-.server-label {
-  color: var(--muted);
+.nav-title {
+  color: #91a9c8;
   font-size: 11px;
   text-transform: uppercase;
-  padding: 10px;
+  padding: 12px 10px 7px;
 }
 
-.nav-button {
+.nav-btn {
   display: block;
   width: 100%;
   text-align: left;
-  padding: 13px;
-  margin: 5px 0;
-  border: 1px solid transparent;
-  border-radius: 9px;
-  color: #c4cede;
+  color: #d8e3f1;
   background: transparent;
+  border: 0;
+  border-radius: 7px;
+  padding: 13px 11px;
+  margin: 3px 0;
 }
 
-.nav-button:hover,
-.nav-button.active {
-  background: #20334a;
-  border-color: #34516b;
-  color: var(--green);
+.nav-btn:hover, .nav-btn.active {
+  background: var(--nav-hover);
+  color: white;
 }
 
-.sidebar-bottom {
-  margin-top: 30px;
-  padding: 10px;
-  color: var(--muted);
+.nav-btn.active { box-shadow: inset 3px 0 #71b3ff; }
+
+.sidebar-foot {
+  color: #91a9c8;
   font-size: 12px;
   line-height: 1.7;
+  margin: 30px 10px 0;
 }
 
 main { min-width: 0; }
 
 .topbar {
-  min-height: 75px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 15px;
+  justify-content: space-between;
   flex-wrap: wrap;
-  padding: 18px 30px;
-  background: #0e1728;
+  gap: 12px;
+  background: white;
   border-bottom: 1px solid var(--border);
+  padding: 18px 28px;
 }
 
 .topbar small { color: var(--muted); }
 
+.user-chip {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 9px 13px;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: bold;
+}
+
 .content {
-  max-width: 1400px;
   padding: 28px;
+  max-width: 1450px;
   margin: auto;
 }
 
-h1 { margin: 0 0 10px; font-size: 29px; }
-h2 { font-size: 19px; }
+h1 { font-size: 28px; margin: 0 0 9px; }
+h2 { font-size: 18px; }
 p { line-height: 1.6; }
 
 .muted { color: var(--muted); }
 
-.grid {
+.page-intro {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 24px;
+}
+
+.cards {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 15px;
-  margin: 25px 0;
+  margin-bottom: 25px;
 }
 
 .card, .panel {
-  background: var(--panel);
+  background: white;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 10px;
   padding: 20px;
+  box-shadow: 0 2px 7px rgba(20,43,74,.025);
   min-width: 0;
 }
 
-.card .label {
-  font-size: 13px;
+.card-label {
   color: var(--muted);
+  font-size: 13px;
 }
 
-.card .number {
+.card-number {
   font-size: 30px;
   font-weight: 800;
   margin-top: 12px;
 }
 
+.card-icon {
+  float: right;
+  font-size: 22px;
+}
+
+.blue { color: var(--blue); }
 .green { color: var(--green); }
 .red { color: var(--red); }
-.yellow { color: var(--yellow); }
+.orange { color: var(--orange); }
 
 .toolbar {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin: 20px 0;
+  margin: 18px 0;
 }
 
 input, select, textarea {
   width: 100%;
   padding: 11px 12px;
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
   color: var(--text);
-  background: #0e1728;
-  border: 1px solid var(--border);
-  border-radius: 7px;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid #b8d5ff;
+  border-color: var(--blue);
 }
 
 .search { flex: 1 1 220px; width: auto; }
 
 .btn {
-  border: 1px solid var(--border);
-  border-radius: 7px;
   padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: white;
   color: var(--text);
-  background: var(--panel2);
 }
 
-.btn:hover { filter: brightness(1.15); }
+.btn:hover { filter: brightness(.96); }
 
 .btn-primary {
-  background: var(--green);
-  color: #071a14;
-  border-color: var(--green);
-  font-weight: 700;
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
 }
 
 .btn-danger {
-  background: #48212d;
-  border-color: #71303e;
-  color: #ffb2bc;
+  color: var(--red);
+  background: #fff1f2;
+  border-color: #fecdd3;
 }
 
 .btn-small {
-  padding: 7px 9px;
   font-size: 12px;
+  padding: 7px 9px;
   margin: 2px;
 }
 
 .table-wrap {
   overflow-x: auto;
   border: 1px solid var(--border);
-  border-radius: 9px;
+  border-radius: 7px;
 }
 
 table {
   width: 100%;
+  min-width: 650px;
   border-collapse: collapse;
-  min-width: 700px;
 }
 
 th, td {
   padding: 13px 14px;
   text-align: left;
   border-bottom: 1px solid var(--border);
+  font-size: 13px;
 }
 
 th {
-  background: var(--panel2);
-  color: var(--muted);
-  font-size: 11px;
+  background: #f7f9fc;
+  color: #63738a;
   text-transform: uppercase;
+  font-size: 11px;
 }
 
-td { font-size: 13px; }
 tr:last-child td { border-bottom: 0; }
 
 .status {
   display: inline-block;
   padding: 5px 9px;
   border-radius: 20px;
+  background: #e6f7ef;
+  color: #11784e;
   font-size: 11px;
-  background: #173b31;
-  color: #7ce9bc;
 }
 
 .status.warning {
-  background: #47361c;
-  color: #ffda88;
+  background: #fff3d8;
+  color: #97620b;
 }
 
 .status.danger {
-  background: #49242e;
-  color: #ff9ca9;
+  background: #ffe7e9;
+  color: #bd2d3d;
 }
 
 .empty {
+  padding: 30px;
   text-align: center;
-  padding: 28px;
   color: var(--muted);
 }
 
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 15px;
+  gap: 16px;
 }
 
 .field label {
   display: block;
-  margin-bottom: 7px;
   font-size: 13px;
-  color: var(--muted);
+  margin-bottom: 7px;
 }
 
 .field.full { grid-column: 1 / -1; }
@@ -264,15 +295,15 @@ tr:last-child td { border-bottom: 0; }
 .form-actions {
   display: flex;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 22px;
 }
 
 .notice {
-  padding: 14px;
-  background: #192c36;
-  border: 1px solid #285044;
-  color: #b8e9d7;
-  border-radius: 8px;
+  background: #eaf3ff;
+  color: #254e83;
+  border: 1px solid #c9ddfa;
+  border-radius: 7px;
+  padding: 13px 15px;
   font-size: 13px;
   line-height: 1.6;
   margin-bottom: 20px;
@@ -281,484 +312,140 @@ tr:last-child td { border-bottom: 0; }
 .hidden { display: none !important; }
 
 footer {
-  color: var(--muted);
-  font-size: 12px;
-  padding: 20px 0;
+  padding: 25px 0;
   text-align: center;
+  font-size: 12px;
+  color: var(--muted);
 }
 
 @media(max-width: 950px) {
-  .layout { grid-template-columns: 1fr; }
-  .sidebar { border-right: 0; border-bottom: 1px solid var(--border); }
-  .brand { padding-bottom: 10px; }
-  .server-label, .sidebar-bottom { display: none; }
-  nav { display: flex; flex-wrap: wrap; gap: 5px; }
-  .nav-button { width: auto; margin: 0; padding: 10px; }
-  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .app { grid-template-columns: 1fr; }
+  .sidebar { padding: 14px; }
+  .sublogo, .nav-title, .sidebar-foot { display: none; }
+  nav { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
+  .nav-btn { width: auto; padding: 10px; margin: 0; }
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media(max-width: 550px) {
-  .content { padding: 18px 12px; }
+  .content { padding: 16px 12px; }
   .topbar { padding: 15px; }
-  .grid { gap: 9px; }
-  .card { padding: 14px; }
-  .card .number { font-size: 25px; }
+  .cards { gap: 9px; }
+  .card { padding: 13px; }
+  .card-number { font-size: 25px; }
   .form-grid { grid-template-columns: 1fr; }
   .field.full { grid-column: auto; }
+  h1 { font-size: 24px; }
 }
 </style>
 </head>
 
 <body>
-<div class="layout">
+<div class="app">
 
-  <aside class="sidebar">
-    <div class="brand">CPM1 <span>CSDD</span></div>
-    <div class="server-label">Roleplay sistēma</div>
+<aside class="sidebar">
+  <div class="logo">CPM1 <span>CSDD</span></div>
+  <div class="sublogo">ROLEPLAY ADMINISTRĀCIJA</div>
 
-    <nav id="navigation">
-      <button class="nav-button active" data-page="dashboard">⌂ &nbsp; Sākums</button>
-      <button class="nav-button" data-page="vehicles">🚘 &nbsp; Transportlīdzekļi</button>
-      <button class="nav-button" data-page="owners">👤 &nbsp; Īpašnieki</button>
-      <button class="nav-button" data-page="inspections">🔧 &nbsp; Tehniskā apskate</button>
-      <button class="nav-button" data-page="licenses">🪪 &nbsp; Vadītāja apliecības</button>
-      <button class="nav-button" data-page="fines">💳 &nbsp; Sodi</button>
-      <button class="nav-button" data-page="admin">⚙ &nbsp; Pārvaldība</button>
-    </nav>
+  <div class="nav-title">Galvenā izvēlne</div>
+  <nav id="navigation">
+    <button class="nav-btn active" data-page="home">⌂ &nbsp; Sākums</button>
+    <button class="nav-btn" data-page="vehicles">🚘 &nbsp; Transportlīdzekļi</button>
+    <button class="nav-btn" data-page="owners">👥 &nbsp; Īpašnieki</button>
+    <button class="nav-btn" data-page="inspections">🔧 &nbsp; Tehniskā apskate</button>
+    <button class="nav-btn" data-page="licenses">🪪 &nbsp; Apliecības</button>
+    <button class="nav-btn" data-page="fines">💳 &nbsp; Sodi</button>
+    <button class="nav-btn" data-page="settings">⚙ &nbsp; Dati un rezerves kopijas</button>
+  </nav>
 
-    <div class="sidebar-bottom">
-      CPM1 Roleplay<br>
-      Neoficiāla spēles sistēma
+  <div class="sidebar-foot">
+    CPM1 Roleplay<br>
+    Neoficiāls spēles projekts
+  </div>
+</aside>
+
+<main>
+  <header class="topbar">
+    <div>
+      <strong id="topTitle">Pārskats</strong><br>
+      <small>Transportlīdzekļu un vadītāju sistēma</small>
     </div>
-  </aside>
+    <span class="user-chip">CSDD PORTĀLS</span>
+  </header>
 
-  <main>
-    <header class="topbar">
-      <div>
-        <strong id="topTitle">CSDD pārskats</strong><br>
-        <small>Transportlīdzekļu un vadītāju reģistrs</small>
-      </div>
-      <div class="muted">CPM1 ROLEPLAY</div>
-    </header>
-
-    <div class="content">
-
-      <div class="notice">
-        Demonstrācijas versija. Dati šobrīd tiek saglabāti šīs pārlūkprogrammas
-        lokālajā krātuvē, nevis koplietojamā serverī.
-      </div>
-
-      <section id="page-dashboard" class="page">
-        <h1>Vadības panelis</h1>
-        <p class="muted">CPM1 Roleplay CSDD sistēmas pārskats.</p>
-
-        <div class="grid">
-          <div class="card">
-            <div class="label">Transportlīdzekļi</div>
-            <div class="number green" id="statVehicles">0</div>
-          </div>
-          <div class="card">
-            <div class="label">Īpašnieki</div>
-            <div class="number" id="statOwners">0</div>
-          </div>
-          <div class="card">
-            <div class="label">Vadītāja apliecības</div>
-            <div class="number" id="statLicenses">0</div>
-          </div>
-          <div class="card">
-            <div class="label">Neapmaksāti sodi</div>
-            <div class="number red" id="statFines">0</div>
-          </div>
-        </div>
-
-        <div class="panel">
-          <h2>Pēdējie transportlīdzekļi</h2>
-          <div id="recentVehicles"></div>
-        </div>
-      </section>
-
-      <section id="page-vehicles" class="page hidden">
-        <h1>Transportlīdzekļi</h1>
-        <p class="muted">Reģistrē, meklē un pārvaldi transportlīdzekļus.</p>
-        <div class="toolbar">
-          <input class="search" id="vehicleSearch" placeholder="Meklēt numurzīmi, modeli vai īpašnieku...">
-          <button class="btn btn-primary" data-add="vehicles">+ Pievienot</button>
-        </div>
-        <div class="panel"><div id="vehiclesTable"></div></div>
-      </section>
-
-      <section id="page-owners" class="page hidden">
-        <h1>Īpašnieku reģistrs</h1>
-        <p class="muted">Transportlīdzekļu īpašnieku informācija.</p>
-        <div class="toolbar">
-          <input class="search" id="ownerSearch" placeholder="Meklēt īpašnieku...">
-          <button class="btn btn-primary" data-add="owners">+ Pievienot īpašnieku</button>
-        </div>
-        <div class="panel"><div id="ownersTable"></div></div>
-      </section>
-
-      <section id="page-inspections" class="page hidden">
-        <h1>Tehniskā apskate</h1>
-        <p class="muted">Apskašu ieraksti un to derīguma termiņi.</p>
-        <div class="toolbar">
-          <input class="search" id="inspectionSearch" placeholder="Meklēt numurzīmi...">
-          <button class="btn btn-primary" data-add="inspections">+ Reģistrēt apskati</button>
-        </div>
-        <div class="panel"><div id="inspectionsTable"></div></div>
-      </section>
-
-      <section id="page-licenses" class="page hidden">
-        <h1>Vadītāja apliecības</h1>
-        <p class="muted">Vadītāju kategorijas un apliecību statuss.</p>
-        <div class="toolbar">
-          <input class="search" id="licenseSearch" placeholder="Meklēt vadītāju...">
-          <button class="btn btn-primary" data-add="licenses">+ Pievienot apliecību</button>
-        </div>
-        <div class="panel"><div id="licensesTable"></div></div>
-      </section>
-
-      <section id="page-fines" class="page hidden">
-        <h1>Sodi</h1>
-        <p class="muted">Pārvaldi pārkāpumus un apmaksas statusus.</p>
-        <div class="toolbar">
-          <input class="search" id="fineSearch" placeholder="Meklēt vadītāju vai pārkāpumu...">
-          <button class="btn btn-primary" data-add="fines">+ Izrakstīt sodu</button>
-        </div>
-        <div class="panel"><div id="finesTable"></div></div>
-      </section>
-
-      <section id="page-admin" class="page hidden">
-        <h1>Pārvaldība</h1>
-        <p class="muted">Vietējie dati un sistēmas iestatījumi.</p>
-
-        <div class="panel">
-          <h2>Datu eksports</h2>
-          <p class="muted">Lejupielādē visu reģistru datus JSON failā kā rezerves kopiju.</p>
-          <button class="btn btn-primary" id="exportButton">Lejupielādēt rezerves kopiju</button>
-        </div>
-
-        <div class="panel" style="margin-top:18px">
-          <h2>Datu imports</h2>
-          <p class="muted">Atjauno datus no iepriekš saglabātas šīs sistēmas JSON rezerves kopijas.</p>
-          <input type="file" id="importFile" accept=".json,application/json">
-          <div style="margin-top:12px">
-            <button class="btn" id="importButton">Importēt datus</button>
-          </div>
-        </div>
-
-        <div class="panel" style="margin-top:18px">
-          <h2>Dzēst vietējos datus</h2>
-          <p class="muted">Šī darbība neatgriezeniski izdzēsīs šīs pārlūkprogrammas reģistrus.</p>
-          <button class="btn btn-danger" id="clearButton">Dzēst visus datus</button>
-        </div>
-
-        <div class="notice" style="margin-top:18px">
-          Drošas administratora autentifikācijas šajā versijā nav.
-          Nepievieno sensitīvus vai reālus personas datus. Lai tikai
-          habigg varētu droši mainīt koplietojamus datus, nepieciešams
-          servera puses autentifikācijas risinājums.
-        </div>
-      </section>
-
-      <section id="page-editor" class="page hidden">
-        <h1 id="editorTitle">Jauns ieraksts</h1>
-        <div class="panel">
-          <form id="editorForm">
-            <div id="editorFields" class="form-grid"></div>
-            <div class="form-actions">
-              <button type="submit" class="btn btn-primary">Saglabāt</button>
-              <button type="button" class="btn" id="cancelEditor">Atcelt</button>
-            </div>
-          </form>
-        </div>
-      </section>
-
-      <footer>CPM1 Roleplay CSDD · Neoficiāls spēles projekts</footer>
+  <div class="content">
+    <div class="notice">
+      Šī ir spēles demonstrācijas sistēma. Dati tiek saglabāti tikai šajā
+      pārlūkprogrammā. Tā nav Latvijas oficiālā CSDD sistēma.
     </div>
-  </main>
-</div>
 
-<script>
-(function () {
-  "use strict";
+    <section id="page-home" class="page">
+      <div class="page-intro">
+        <div>
+          <h1>Vadības panelis</h1>
+          <p class="muted">Pārskats par reģistru stāvokli.</p>
+        </div>
+      </div>
 
-  var STORAGE_KEY = "cpm1_csdd_data_v1";
+      <div class="cards">
+        <div class="card">
+          <span class="card-icon">🚘</span>
+          <div class="card-label">Transportlīdzekļi</div>
+          <div class="card-number blue" id="statVehicles">0</div>
+        </div>
+        <div class="card">
+          <span class="card-icon">👥</span>
+          <div class="card-label">Īpašnieki</div>
+          <div class="card-number green" id="statOwners">0</div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🪪</span>
+          <div class="card-label">Apliecības</div>
+          <div class="card-number orange" id="statLicenses">0</div>
+        </div>
+        <div class="card">
+          <span class="card-icon">💳</span>
+          <div class="card-label">Neapmaksātie sodi</div>
+          <div class="card-number red" id="statFines">0</div>
+        </div>
+      </div>
 
-  var definitions = {
-    vehicles: {
-      title: "Transportlīdzekļi",
-      singular: "transportlīdzekli",
-      fields: [
-        ["plate", "Numurzīme", "text", true],
-        ["model", "Marka un modelis", "text", true],
-        ["owner", "Īpašnieks", "text", true],
-        ["inspection", "Apskates termiņš", "date", false],
-        ["status", "Statuss", "select", true, ["Reģistrēts", "Apturēts", "Norakstīts"]]
-      ],
-      columns: [
-        ["plate", "Numurzīme"],
-        ["model", "Transportlīdzeklis"],
-        ["owner", "Īpašnieks"],
-        ["inspection", "Apskate"],
-        ["status", "Statuss"]
-      ]
-    },
+      <div class="panel">
+        <h2>Pēdējie reģistrētie transportlīdzekļi</h2>
+        <div id="recentVehicles"></div>
+      </div>
+    </section>
 
-    owners: {
-      title: "Īpašnieki",
-      singular: "īpašnieku",
-      fields: [
-        ["name", "Vārds, uzvārds vai spēles lietotājvārds", "text", true],
-        ["phone", "Tālrunis (spēles ietvaros)", "text", false],
-        ["notes", "Piezīmes", "textarea", false]
-      ],
-      columns: [
-        ["name", "Īpašnieks"],
-        ["phone", "Tālrunis"],
-        ["notes", "Piezīmes"]
-      ]
-    },
+    <section id="page-vehicles" class="page hidden">
+      <div class="page-intro">
+        <div><h1>Transportlīdzekļi</h1><p class="muted">Transportlīdzekļu reģistrs.</p></div>
+        <button class="btn btn-primary" data-add="vehicles">+ Pievienot</button>
+      </div>
+      <div class="toolbar"><input id="search-vehicles" class="search" placeholder="Meklēt numurzīmi, modeli vai īpašnieku"></div>
+      <div class="panel"><div id="table-vehicles"></div></div>
+    </section>
 
-    inspections: {
-      title: "Tehniskā apskate",
-      singular: "apskati",
-      fields: [
-        ["plate", "Numurzīme", "text", true],
-        ["date", "Apskates datums", "date", true],
-        ["expiry", "Derīguma termiņš", "date", true],
-        ["status", "Rezultāts", "select", true, ["Derīga", "Nederīga", "Jāveic atkārtoti"]],
-        ["notes", "Piezīmes", "textarea", false]
-      ],
-      columns: [
-        ["plate", "Numurzīme"],
-        ["date", "Apskates datums"],
-        ["expiry", "Derīga līdz"],
-        ["status", "Rezultāts"],
-        ["notes", "Piezīmes"]
-      ]
-    },
+    <section id="page-owners" class="page hidden">
+      <div class="page-intro">
+        <div><h1>Īpašnieki</h1><p class="muted">Spēles īpašnieku reģistrs.</p></div>
+        <button class="btn btn-primary" data-add="owners">+ Pievienot</button>
+      </div>
+      <div class="toolbar"><input id="search-owners" class="search" placeholder="Meklēt īpašnieku"></div>
+      <div class="panel"><div id="table-owners"></div></div>
+    </section>
 
-    licenses: {
-      title: "Vadītāja apliecības",
-      singular: "apliecību",
-      fields: [
-        ["name", "Vadītājs", "text", true],
-        ["categories", "Kategorijas", "text", true],
-        ["expiry", "Derīguma termiņš", "date", false],
-        ["status", "Statuss", "select", true, ["Aktīva", "Apturēta", "Anulēta"]]
-      ],
-      columns: [
-        ["name", "Vadītājs"],
-        ["categories", "Kategorijas"],
-        ["expiry", "Derīga līdz"],
-        ["status", "Statuss"]
-      ]
-    },
+    <section id="page-inspections" class="page hidden">
+      <div class="page-intro">
+        <div><h1>Tehniskā apskate</h1><p class="muted">Apskašu termiņi un rezultāti.</p></div>
+        <button class="btn btn-primary" data-add="inspections">+ Reģistrēt apskati</button>
+      </div>
+      <div class="toolbar"><input id="search-inspections" class="search" placeholder="Meklēt numurzīmi"></div>
+      <div class="panel"><div id="table-inspections"></div></div>
+    </section>
 
-    fines: {
-      title: "Sodi",
-      singular: "sodu",
-      fields: [
-        ["name", "Vadītājs", "text", true],
-        ["plate", "Numurzīme (ja attiecas)", "text", false],
-        ["reason", "Pārkāpums", "text", true],
-        ["amount", "Summa (€)", "number", true],
-        ["date", "Datums", "date", true],
-        ["status", "Apmaksas statuss", "select", true, ["Neapmaksāts", "Apmaksāts", "Atcelts"]]
-      ],
-      columns: [
-        ["name", "Vadītājs"],
-        ["plate", "Numurzīme"],
-        ["reason", "Pārkāpums"],
-        ["amount", "Summa"],
-        ["date", "Datums"],
-        ["status", "Apmaksa"]
-      ]
-    }
-  };
-
-  var blankData = {
-    vehicles: [],
-    owners: [],
-    inspections: [],
-    licenses: [],
-    fines: []
-  };
-
-  var db = loadData();
-  var editing = null;
-  var editorReturnPage = "dashboard";
-
-  function loadData() {
-    try {
-      var saved = localStorage.getItem(STORAGE_KEY);
-      if (!saved) return clone(blankData);
-
-      var parsed = JSON.parse(saved);
-
-      Object.keys(blankData).forEach(function (key) {
-        if (!Array.isArray(parsed[key])) parsed[key] = [];
-      });
-
-      return parsed;
-    } catch (e) {
-      return clone(blankData);
-    }
-  }
-
-  function clone(value) {
-    return JSON.parse(JSON.stringify(value));
-  }
-
-  function saveData() {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
-      return true;
-    } catch (e) {
-      alert("Neizdevās saglabāt datus. Pārbaudi pārlūkprogrammas krātuves iestatījumus.");
-      return false;
-    }
-  }
-
-  function escapeHTML(value) {
-    return String(value == null ? "" : value).replace(/[&<>"']/g, function (c) {
-      return {
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
-      }[c];
-    });
-  }
-
-  function showPage(page) {
-    document.querySelectorAll(".page").forEach(function (el) {
-      el.classList.add("hidden");
-    });
-
-    var target = document.getElementById("page-" + page);
-    if (!target) return;
-
-    target.classList.remove("hidden");
-
-    document.querySelectorAll(".nav-button").forEach(function (button) {
-      button.classList.toggle("active", button.dataset.page === page);
-    });
-
-    var titles = {
-      dashboard: "CSDD pārskats",
-      vehicles: "Transportlīdzekļu reģistrs",
-      owners: "Īpašnieku reģistrs",
-      inspections: "Tehniskā apskate",
-      licenses: "Vadītāja apliecības",
-      fines: "Sodu reģistrs",
-      admin: "Sistēmas pārvaldība",
-      editor: "Ieraksta rediģēšana"
-    };
-
-    document.getElementById("topTitle").textContent = titles[page] || "CPM1 CSDD";
-
-    if (page === "dashboard") renderDashboard();
-    if (definitions[page]) renderTable(page);
-  }
-
-  function statusClass(value) {
-    var text = String(value || "").toLowerCase();
-
-    if (text.indexOf("neapmaksāts") !== -1 ||
-        text.indexOf("nederīga") !== -1 ||
-        text.indexOf("apturēts") !== -1 ||
-        text.indexOf("anulēta") !== -1 ||
-        text.indexOf("norakstīts") !== -1) {
-      return "danger";
-    }
-
-    if (text.indexOf("atkārtoti") !== -1) return "warning";
-
-    return "";
-  }
-
-  function renderTable(key) {
-    var config = definitions[key];
-    var query = "";
-
-    var searchMap = {
-      vehicles: "vehicleSearch",
-      owners: "ownerSearch",
-      inspections: "inspectionSearch",
-      licenses: "licenseSearch",
-      fines: "fineSearch"
-    };
-
-    var search = document.getElementById(searchMap[key]);
-    if (search) query = search.value.trim().toLowerCase();
-
-    var rows = db[key].filter(function (row) {
-      return JSON.stringify(row).toLowerCase().indexOf(query) !== -1;
-    });
-
-    var html = '<div class="table-wrap"><table><thead><tr>';
-
-    config.columns.forEach(function (col) {
-      html += "<th>" + escapeHTML(col[1]) + "</th>";
-    });
-
-    html += "<th>Darbības</th></tr></thead><tbody>";
-
-    if (!rows.length) {
-      html += '<tr><td colspan="' + (config.columns.length + 1) +
-        '" class="empty">Ierakstu nav. Pievieno pirmo ierakstu.</td></tr>';
-    } else {
-      rows.forEach(function (row) {
-        html += "<tr>";
-
-        config.columns.forEach(function (col) {
-          var value = row[col[0]] || "—";
-
-          if (col[0] === "status") {
-            var cls = statusClass(value);
-            html += '<td><span class="status ' + cls + '">' +
-              escapeHTML(value) + "</span></td>";
-          } else {
-            html += "<td>" + escapeHTML(value) + "</td>";
-          }
-        });
-
-        html += '<td><button class="btn btn-small" data-edit="' +
-          key + '" data-id="' + escapeHTML(row.id) +
-          '">Rediģēt</button>';
-
-        if (key === "fines" && row.status === "Neapmaksāts") {
-          html += '<button class="btn btn-small" data-paid="' +
-            escapeHTML(row.id) + '">Atzīmēt apmaksātu</button>';
-        }
-
-        html += '<button class="btn btn-danger btn-small" data-delete="' +
-          key + '" data-id="' + escapeHTML(row.id) +
-          '">Dzēst</button></td></tr>';
-      });
-    }
-
-    html += "</tbody></table></div>";
-    document.getElementById(key + "Table").innerHTML = html;
-  }
-
-  function renderDashboard() {
-    document.getElementById("statVehicles").textContent = db.vehicles.length;
-    document.getElementById("statOwners").textContent = db.owners.length;
-    document.getElementById("statLicenses").textContent = db.licenses.length;
-    document.getElementById("statFines").textContent =
-      db.fines.filter(function (fine) {
-        return fine.status === "Neapmaksāts";
-      }).length;
-
-    var recent = db.vehicles.slice(-5).reverse();
-
-    if (!recent.length) {
-      document.getElementById("recentVehicles").innerHTML =
-        '<p class="empty">Transportlīdzekļu vēl nav.</p>';
-      return;
-    }
-
-    var html =>
+    <section id="page-licenses" class="page hidden">
+      <div class="page-intro">
+        <div><h1>Vadītāja apliecības</h1><p class="muted">Vadītāju un kategoriju reģistrs.</p></div>
+        <button class="btn btn-primary" data-add="licenses">+ Pievienot</button>
+      </div>
+      <div class="toolbar"><input id
