@@ -3,251 +3,624 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CPM1 | Transportlīdzekļu e-pakalpojumi</title>
+<title>CSDD | CPM1 Roleplay</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f1f3f5;color:#252525}
-.notice{background:#fff0d0;color:#704b00;text-align:center;padding:10px;font-size:12px}
-header{background:white;border-bottom:4px solid #bd2026;padding:22px 5%}
-.logo{font-size:28px;font-weight:bold;color:#163c63}
-.logo span{color:#bd2026}
-.subtitle{color:#666;font-size:13px;margin-top:5px}
-nav{background:#163c63;padding:0 5%;display:flex;flex-wrap:wrap}
-nav button{background:none;border:0;color:white;padding:17px 15px;cursor:pointer;font-size:14px}
-nav button:hover,nav button.active{background:#28557e}
-main{max-width:1150px;margin:30px auto;padding:0 20px}
-h1{font-size:27px;color:#163c63}
-h2{font-size:21px;color:#163c63}
-p{line-height:1.6}
-.muted{color:#687583}
-.panel{background:white;border:1px solid #d8dee5;border-radius:4px;padding:22px;margin-bottom:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-.card{background:white;border:1px solid #d8dee5;border-top:3px solid #bd2026;border-radius:4px;padding:20px}
-.card h3{color:#163c63;margin-top:0}
-button,.button{cursor:pointer}
-.btn{background:#1d527f;color:white;border:0;padding:11px 15px;border-radius:3px;font-size:14px}
-.btn:hover{background:#163c63}
-.btn.red{background:#bd2026}
-input,select{width:100%;padding:11px;border:1px solid #cbd2d9;border-radius:3px;margin:7px 0 15px}
-label{font-size:13px;font-weight:bold;color:#163c63}
-.page{display:none}
-.page.active{display:block}
-table{width:100%;border-collapse:collapse;background:white}
-th,td{text-align:left;padding:12px;border-bottom:1px solid #ddd;font-size:14px}
-th{background:#e9edf1;color:#163c63}
-.table-wrap{overflow-x:auto}
-.status{color:#187341;font-weight:bold}
-footer{text-align:center;background:#e6e9ed;padding:25px;color:#59636e;font-size:12px;line-height:1.7;margin-top:40px}
-#message{display:none;padding:12px;background:#e2f4e8;color:#176335;margin-bottom:15px}
-@media(max-width:600px){nav button{padding:13px 9px;font-size:12px}main{padding:0 12px}.panel{padding:16px}}
+:root {
+  --blue: #0756a5;
+  --dark: #17324d;
+  --bg: #f2f5f8;
+  --white: #fff;
+  --border: #dce3eb;
+  --green: #198754;
+  --red: #c62828;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: #253447;
+}
+header {
+  background: var(--blue);
+  color: white;
+  padding: 20px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand { font-size: 25px; font-weight: bold; }
+.brand small {
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+  margin-top: 5px;
+}
+header button {
+  background: white;
+  color: var(--blue);
+}
+.layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  min-height: calc(100vh - 80px);
+}
+nav {
+  background: white;
+  border-right: 1px solid var(--border);
+  padding: 18px 12px;
+}
+nav button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  color: #34465a;
+  margin-bottom: 5px;
+}
+nav button.active {
+  background: #e8f1fb;
+  color: var(--blue);
+  font-weight: bold;
+}
+main { padding: 28px; min-width: 0; }
+h1 { margin-top: 0; font-size: 28px; }
+h2 { font-size: 19px; margin-top: 0; }
+.muted { color: #68788a; font-size: 14px; line-height: 1.5; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+.card, .panel {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 18px;
+}
+.card strong {
+  display: block;
+  font-size: 28px;
+  margin-top: 12px;
+  color: var(--blue);
+}
+button {
+  border: 0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  cursor: pointer;
+  background: var(--blue);
+  color: white;
+  font-size: 14px;
+}
+button:hover { opacity: .88; }
+button.secondary { background: #e8edf3; color: #26394d; }
+button.danger { background: var(--red); }
+button.success { background: var(--green); }
+input, select, textarea {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #ccd6e0;
+  border-radius: 6px;
+  font-size: 14px;
+  margin: 6px 0 14px;
+  background: white;
+}
+label { font-size: 13px; font-weight: bold; }
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 14px;
+}
+.form-grid .full { grid-column: 1 / -1; }
+.table-wrap { overflow-x: auto; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  min-width: 560px;
+}
+th, td {
+  padding: 13px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+th { background: #f5f8fb; }
+.badge {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 12px;
+  background: #e7f6ec;
+  color: #187544;
+}
+.badge.red { background: #ffebeb; color: var(--red); }
+.badge.gray { background: #e9edf1; color: #526172; }
+.hidden { display: none !important; }
+.notice {
+  background: #fff8e5;
+  border: 1px solid #f0dda1;
+  padding: 12px;
+  border-radius: 7px;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+footer {
+  padding: 18px;
+  text-align: center;
+  font-size: 12px;
+  color: #738195;
+}
+.actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.empty { padding: 24px; text-align: center; color: #738195; }
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; }
+  nav {
+    display: flex;
+    overflow-x: auto;
+    gap: 5px;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    padding: 10px;
+  }
+  nav button {
+    white-space: nowrap;
+    width: auto;
+    margin: 0;
+  }
+  main { padding: 18px 12px; }
+  .cards { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .form-grid .full { grid-column: auto; }
+}
 </style>
 </head>
 <body>
 
-<div class="notice">
-CPM1 ROLEPLAY — NEOFICIĀLS SPĒLES PROJEKTS. Šī nav īstā CSDD vietne.
-</div>
-
 <header>
-<div class="logo"><span>CPM1</span> | e-Pakalpojumi</div>
-<div class="subtitle">Transportlīdzekļu un vadītāju informācijas sistēma</div>
+  <div class="brand">
+    CSDD
+    <small>CPM1 Roleplay · Transportlīdzekļu reģistrs</small>
+  </div>
+  <button id="adminButton" onclick="toggleAdmin()">Administratora pieslēgšanās</button>
 </header>
 
-<nav>
-<button class="active" onclick="openPage('home',this)">Sākums</button>
-<button onclick="openPage('cars',this)">Transportlīdzekļi</button>
-<button onclick="openPage('inspection',this)">Tehniskā apskate</button>
-<button onclick="openPage('license',this)">Vadītāja apliecība</button>
-<button onclick="openPage('fines',this)">Sodi un maksājumi</button>
-<button onclick="openPage('profile',this)">Mans profils</button>
-</nav>
+<div class="layout">
+  <nav>
+    <button class="active" data-page="home" onclick="showPage('home',this)">Sākums</button>
+    <button data-page="cars" onclick="showPage('cars',this)">Mani transportlīdzekļi</button>
+    <button data-page="inspection" onclick="showPage('inspection',this)">Tehniskā apskate</button>
+    <button data-page="license" onclick="showPage('license',this)">Vadītāja apliecība</button>
+    <button data-page="fines" onclick="showPage('fines',this)">Sodi</button>
+    <button data-page="profile" onclick="showPage('profile',this)">Profils</button>
+  </nav>
 
-<main>
-<div id="message"></div>
+  <main>
+    <div class="notice">
+      <strong>CPM1 Roleplay informācija:</strong> šī ir neoficiāla lomu spēles mājaslapa.
+      Tā nav Latvijas valsts iestādes CSDD oficiālā vietne.
+    </div>
 
-<section id="home" class="page active">
-<div class="panel">
-<h1>Transportlīdzekļu e-pakalpojumi</h1>
-<p class="muted">Laipni lūdzam CPM1 Roleplay transportlīdzekļu sistēmā. Šeit vari pārvaldīt savus spēles transportlīdzekļus, apskatīt tehniskās apskates statusu un pārbaudīt sodus.</p>
-</div>
-<div class="grid">
-<div class="card">
-<h3>🚘 Mani transportlīdzekļi</h3>
-<p>Reģistrē un pārvaldi savus spēles transportlīdzekļus.</p>
-<button class="btn" onclick="openPage('cars')">Atvērt</button>
-</div>
-<div class="card">
-<h3>🔧 Tehniskā apskate</h3>
-<p>Apskati transportlīdzekļu tehniskās apskates statusu.</p>
-<button class="btn" onclick="openPage('inspection')">Pārbaudīt</button>
-</div>
-<div class="card">
-<h3>🪪 Vadītāja apliecība</h3>
-<p>Pārbaudi savu spēles vadītāja apliecību un kategorijas.</p>
-<button class="btn" onclick="openPage('license')">Apliecības dati</button>
-</div>
-<div class="card">
-<h3>🚨 Sodi un maksājumi</h3>
-<p>Apskati un pārvaldi lomu spēles sodus.</p>
-<button class="btn" onclick="openPage('fines')">Atvērt sodus</button>
-</div>
-</div>
-</section>
+    <section id="page-home">
+      <h1>Vadības panelis</h1>
+      <p class="muted">Transportlīdzekļu un vadītāja informācija CPM1 Roleplay serverī.</p>
 
-<section id="cars" class="page">
-<div class="panel">
-<h1>Mani transportlīdzekļi</h1>
-<p class="muted">Šeit pievienotie dati ir paredzēti tikai spēles vajadzībām.</p>
-<h3>Reģistrēt jaunu transportlīdzekli</h3>
-<form id="carForm">
-<label>Marka un modelis</label>
-<input id="carName" placeholder="BMW M3" required>
-<label>Spēles numurzīme</label>
-<input id="carPlate" placeholder="CPM-123" required>
-<label>Izlaiduma gads</label>
-<input id="carYear" type="number" min="1950" max="2026" value="2020" required>
-<button class="btn" type="submit">Reģistrēt transportlīdzekli</button>
-</form>
-</div>
-<div class="panel">
-<h2>Reģistrētie transportlīdzekļi</h2>
-<div class="table-wrap">
-<table>
-<thead><tr><th>Marka</th><th>Numurzīme</th><th>Gads</th><th>Darbība</th></tr></thead>
-<tbody id="carRows"></tbody>
-</table>
-</div>
-</div>
-</section>
+      <div class="cards">
+        <div class="card">Reģistrētie transportlīdzekļi<strong id="carCount">0</strong></div>
+        <div class="card">Aktīvie sodi<strong id="fineCount">0</strong></div>
+        <div class="card">Tehniskā apskate<strong id="inspectionCount">0</strong></div>
+      </div>
 
-<section id="inspection" class="page">
-<div class="panel">
-<h1>Tehniskā apskate</h1>
-<p>Transportlīdzekļu apskates statuss CPM1 Roleplay spēles vidē.</p>
-<div class="table-wrap">
-<table>
-<thead><tr><th>Transportlīdzeklis</th><th>Numurzīme</th><th>Statuss</th><th>Darbība</th></tr></thead>
-<tbody id="inspectionRows"></tbody>
-</table>
-</div>
-</div>
-</section>
+      <div class="panel">
+        <h2>Sistēmas informācija</h2>
+        <p id="welcomeText">Laipni lūdzam CPM1 Roleplay transportlīdzekļu reģistrā!</p>
+        <p class="muted">Administrators var pārvaldīt transportlīdzekļus, apskates, apliecības, sodus un profila datus.</p>
+      </div>
+    </section>
 
-<section id="license" class="page">
-<div class="panel">
-<h1>Vadītāja apliecība</h1>
-<p class="muted">Spēles profila vadītāja apliecības informācija.</p>
-<label>Vārds, uzvārds</label>
-<input id="driverName" placeholder="Vārds Uzvārds">
-<label>Vadītāja kategorija</label>
-<select id="driverCategory">
-<option>B</option><option>A</option><option>BE</option><option>C</option><option>CE</option><option>D</option>
-</select>
-<label>Apliecības statuss</label>
-<select id="driverStatus">
-<option>Derīga</option><option>Apturēta</option><option>Nav iegūta</option>
-</select>
-<button class="btn" onclick="saveLicense()">Saglabāt apliecības datus</button>
-</div>
-</section>
+    <section id="page-cars" class="hidden">
+      <h1>Transportlīdzekļi</h1>
+      <div id="carAdmin" class="panel hidden">
+        <h2>Reģistrēt transportlīdzekli</h2>
+        <form id="carForm">
+          <div class="form-grid">
+            <div>
+              <label for="carMake">Marka</label>
+              <input id="carMake" required placeholder="Piem., BMW">
+            </div>
+            <div>
+              <label for="carModel">Modelis</label>
+              <input id="carModel" required placeholder="Piem., 530d">
+            </div>
+            <div class="full">
+              <label for="carPlate">Valsts reģistrācijas numurs</label>
+              <input id="carPlate" required placeholder="Piem., AB-1234">
+            </div>
+          </div>
+          <button type="submit">Pievienot transportlīdzekli</button>
+        </form>
+      </div>
 
-<section id="fines" class="page">
-<div class="panel">
-<h1>Sodi un maksājumi</h1>
-<p class="muted">Spēles sodu uzskaite. Reāli maksājumi netiek veikti.</p>
-<form id="fineForm">
-<label>Pārkāpuma apraksts</label>
-<input id="fineReason" placeholder="Ātruma pārsniegšana" required>
-<label>Soda summa (€ spēles uzskaitē)</label>
-<input id="fineAmount" type="number" min="1" max="100000" required>
-<button class="btn" type="submit">Pievienot sodu</button>
-</form>
-</div>
-<div class="panel">
-<h2>Sodu saraksts</h2>
-<div class="table-wrap">
-<table>
-<thead><tr><th>Pārkāpums</th><th>Summa</th><th>Statuss</th><th>Darbība</th></tr></thead>
-<tbody id="fineRows"></tbody>
-</table>
-</div>
-</div>
-</section>
+      <div class="panel">
+        <h2>Reģistrēto transportlīdzekļu saraksts</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Marka</th><th>Modelis</th><th>Reģistrācijas numurs</th><th>Tehniskā apskate</th><th id="carActionsHead" class="hidden">Darbības</th></tr></thead>
+            <tbody id="carRows"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
-<section id="profile" class="page">
-<div class="panel">
-<h1>Mans profils</h1>
-<label>Spēles vārds vai lietotājvārds</label>
-<input id="profileName" placeholder="Ievadi savu spēles vārdu">
-<button class="btn" onclick="saveProfile()">Saglabāt profilu</button>
-<p id="profileInfo" class="muted"></p>
-</div>
-</section>
-</main>
+    <section id="page-inspection" class="hidden">
+      <h1>Tehniskā apskate</h1>
+      <div id="inspectionAdmin" class="panel hidden">
+        <h2>Mainīt tehniskās apskates statusu</h2>
+        <form id="inspectionForm">
+          <label for="inspectionCar">Transportlīdzeklis</label>
+          <select id="inspectionCar" required></select>
+          <label for="inspectionStatus">Statuss</label>
+          <select id="inspectionStatus">
+            <option value="Derīga">Derīga</option>
+            <option value="Nav derīga">Nav derīga</option>
+            <option value="Nav veikta">Nav veikta</option>
+          </select>
+          <label for="inspectionDate">Derīguma termiņš</label>
+          <input id="inspectionDate" type="date">
+          <button type="submit">Saglabāt statusu</button>
+        </form>
+      </div>
+      <div class="panel">
+        <h2>Apskašu saraksts</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Transportlīdzeklis</th><th>Numurs</th><th>Statuss</th><th>Derīga līdz</th></tr></thead>
+            <tbody id="inspectionRows"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
-<footer>
-<strong>CPM1 Roleplay e-pakalpojumi</strong><br>
-Neoficiāls spēles projekts, kas nav saistīts ar CSDD vai Latvijas valsts iestādēm.<br>
-Visi ieraksti ir paredzēti lomu spēlei un tiek saglabāti tikai šajā pārlūkā.
-</footer>
+    <section id="page-license" class="hidden">
+      <h1>Vadītāja apliecība</h1>
+      <div id="licenseAdmin" class="panel hidden">
+        <h2>Vadītāja apliecības dati</h2>
+        <form id="licenseForm">
+          <label for="licenseName">Vadītāja vārds, uzvārds (RP)</label>
+          <input id="licenseName" placeholder="Piem., Jānis Bērziņš">
+          <label for="licenseNumber">Apliecības numurs (RP)</label>
+          <input id="licenseNumber" placeholder="Piem., CPM1-001">
+          <label for="licenseCategory">Kategorija</label>
+          <select id="licenseCategory">
+            <option>B</option><option>A</option><option>BE</option>
+            <option>C</option><option>CE</option><option>AM</option>
+            <option>A, B</option><option>A, B, C</option>
+          </select>
+          <label for="licenseStatus">Statuss</label>
+          <select id="licenseStatus">
+            <option>Derīga</option><option>Apturēta</option><option>Anulēta</option>
+          </select>
+          <button type="submit">Saglabāt apliecību</button>
+        </form>
+      </div>
+      <div class="panel">
+        <h2>Apliecības informācija</h2>
+        <p><strong>Vadītājs:</strong> <span id="displayLicenseName">Nav norādīts</span></p>
+        <p><strong>Apliecības numurs:</strong> <span id="displayLicenseNumber">Nav norādīts</span></p>
+        <p><strong>Kategorija:</strong> <span id="displayLicenseCategory">Nav norādīta</span></p>
+        <p><strong>Statuss:</strong> <span id="displayLicenseStatus">Nav norādīts</span></p>
+      </div>
+    </section>
+
+    <section id="page-fines" class="hidden">
+      <h1>Sodi</h1>
+      <div id="fineAdmin" class="panel hidden">
+        <h2>Reģistrēt sodu</h2>
+        <form id="fineForm">
+          <label for="finePerson">Personas vārds, uzvārds (RP)</label>
+          <input id="finePerson" required placeholder="Piem., Jānis Bērziņš">
+          <label for="fineReason">Pārkāpums</label>
+          <input id="fineReason" required placeholder="Piem., ātruma pārsniegšana">
+          <label for="fineAmount">Soda summa (€ RP)</label>
+          <input id="fineAmount" type="number" min="0" required placeholder="100">
+          <button type="submit">Pievienot sodu</button>
+        </form>
+      </div>
+      <div class="panel">
+        <h2>Sodu saraksts</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Persona</th><th>Pārkāpums</th><th>Summa</th><th>Statuss</th><th id="fineActionsHead" class="hidden">Darbības</th></tr></thead>
+            <tbody id="fineRows"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="page-profile" class="hidden">
+      <h1>Profils</h1>
+      <div id="profileAdmin" class="panel hidden">
+        <h2>Profila informācija</h2>
+        <form id="profileForm">
+          <label for="profileName">Vārds, uzvārds (RP)</label>
+          <input id="profileName" placeholder="Piem., Jānis Bērziņš">
+          <label for="profileId">Spēles ID</label>
+          <input id="profileId" placeholder="Piem., 12345">
+          <label for="profileRole">Amats serverī</label>
+          <input id="profileRole" placeholder="Piem., Iedzīvotājs">
+          <button type="submit">Saglabāt profilu</button>
+        </form>
+      </div>
+      <div class="panel">
+        <h2>Profila dati</h2>
+        <p><strong>Vārds, uzvārds:</strong> <span id="displayProfileName">Nav norādīts</span></p>
+        <p><strong>Spēles ID:</strong> <span id="displayProfileId">Nav norādīts</span></p>
+        <p><strong>Amats:</strong> <span id="displayProfileRole">Nav norādīts</span></p>
+      </div>
+    </section>
+
+    <section id="page-admin" class="hidden">
+      <h1>Administratora piekļuve</h1>
+      <div class="panel">
+        <h2>Pieslēgties</h2>
+        <p class="muted">Ievadi administratora paroli, lai atvērtu rediģēšanas iespējas šajā pārlūkā.</p>
+        <form id="loginForm">
+          <label for="adminPassword">Parole</label>
+          <input id="adminPassword" type="password" required autocomplete="current-password">
+          <button type="submit">Pieslēgties</button>
+          <p id="loginMessage" class="muted"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>CPM1 Roleplay · Neoficiāla lomu spēles vietne · Nav saistīta ar valsts CSDD</footer>
 
 <script>
-const KEY='cpm1_csdd_demo_v1';
-let db;
-try {
- db=JSON.parse(localStorage.getItem(KEY))||{cars:[],fines:[],license:{name:'',category:'B',status:'Nav iegūta'},profile:''};
-} catch(e) {
- db={cars:[],fines:[],license:{name:'',category:'B',status:'Nav iegūta'},profile:''};
+/*
+  DEMO VERSIJA GITHUB PAGES.
+  Parole un dati glabājas klienta pusē. Tas NAV drošs servera autentifikācijas risinājums.
+  Nomaini paroli zemāk, bet neizmanto šo pieeju īstu datu aizsardzībai.
+*/
+const ADMIN_PASSWORD = "NomainiSoParoli123";
+
+const defaultData = {
+  cars: [],
+  fines: [],
+  license: {
+    name: "",
+    number: "",
+    category: "B",
+    status: "Derīga"
+  },
+  profile: {
+    name: "",
+    id: "",
+    role: ""
+  }
+};
+
+function loadData() {
+  try {
+    const saved = JSON.parse(localStorage.getItem("cpm1CsddData"));
+    if (!saved || typeof saved !== "object") return structuredClone(defaultData);
+    return {
+      ...structuredClone(defaultData),
+      ...saved,
+      cars: Array.isArray(saved.cars) ? saved.cars : [],
+      fines: Array.isArray(saved.fines) ? saved.fines : [],
+      license: {...defaultData.license, ...(saved.license || {})},
+      profile: {...defaultData.profile, ...(saved.profile || {})}
+    };
+  } catch {
+    return structuredClone(defaultData);
+  }
 }
-function persist(){localStorage.setItem(KEY,JSON.stringify(db));render();}
-function notify(text){const el=document.getElementById('message');el.textContent=text;el.style.display='block';setTimeout(()=>el.style.display='none',3000);}
-function openPage(id,btn){
- document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
- document.getElementById(id).classList.add('active');
- document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
- if(btn)btn.classList.add('active');
+
+let data = loadData();
+let isAdmin = false;
+
+function persist() {
+  localStorage.setItem("cpm1CsddData", JSON.stringify(data));
+  render();
 }
-function safe(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-document.getElementById('carForm').addEventListener('submit',e=>{
- e.preventDefault();
- const name=document.getElementById('carName').value.trim();
- const plate=document.getElementById('carPlate').value.trim().toUpperCase();
- if(db.cars.some(c=>c.plate===plate)){notify('Šī numurzīme jau ir reģistrēta šajā pārlūkā.');return;}
- db.cars.push({id:Date.now(),name,plate,year:document.getElementById('carYear').value,inspection:'Jāveic'});
- e.target.reset();persist();notify('Transportlīdzeklis pievienots spēles uzskaitei.');
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+function showPage(page, button) {
+  document.querySelectorAll("main section").forEach(section => section.classList.add("hidden"));
+  const target = document.getElementById("page-" + page);
+  if (target) target.classList.remove("hidden");
+
+  document.querySelectorAll("nav button").forEach(item => item.classList.remove("active"));
+  if (button) button.classList.add("active");
+}
+
+function toggleAdmin() {
+  if (isAdmin) {
+    isAdmin = false;
+    render();
+    document.getElementById("adminButton").textContent = "Administratora pieslēgšanās";
+    alert("Administratora režīms izslēgts.");
+    return;
+  }
+  showPage("admin", null);
+}
+
+document.getElementById("loginForm").addEventListener("submit", event => {
+  event.preventDefault();
+  const password = document.getElementById("adminPassword").value;
+  const message = document.getElementById("loginMessage");
+
+  if (password === ADMIN_PASSWORD) {
+    isAdmin = true;
+    document.getElementById("adminPassword").value = "";
+    message.textContent = "";
+    document.getElementById("adminButton").textContent = "Iziet no administratora";
+    render();
+    showPage("home", document.querySelector('nav button[data-page="home"]'));
+  } else {
+    message.textContent = "Nepareiza parole.";
+  }
 });
-function removeCar(id){if(confirm('Dzēst šo spēles transportlīdzekli?')){db.cars=db.cars.filter(c=>c.id!==id);persist();}}
-function setInspection(id){
- const car=db.cars.find(c=>c.id===id);if(!car)return;
- const s=prompt('Ievadi apskates statusu: Derīga / Nav derīga / Jāveic',car.inspection);
- if(s===null)return;
- if(!['Derīga','Nav derīga','Jāveic'].includes(s.trim())){notify('Izvēlies Derīga, Nav derīga vai Jāveic.');return;}
- car.inspection=s.trim();persist();notify('Spēles apskates statuss atjaunots.');
-}
-document.getElementById('fineForm').addEventListener('submit',e=>{
- e.preventDefault();
- db.fines.push({id:Date.now(),reason:document.getElementById('fineReason').value.trim(),amount:Number(document.getElementById('fineAmount').value),paid:false});
- e.target.reset();persist();notify('Spēles sods pievienots.');
+
+document.getElementById("carForm").addEventListener("submit", event => {
+  event.preventDefault();
+  if (!isAdmin) return;
+
+  const make = document.getElementById("carMake").value.trim();
+  const model = document.getElementById("carModel").value.trim();
+  const plate = document.getElementById("carPlate").value.trim().toUpperCase();
+
+  if (!make || !model || !plate) return;
+  if (data.cars.some(car => car.plate.toLowerCase() === plate.toLowerCase())) {
+    alert("Šāds reģistrācijas numurs jau eksistē.");
+    return;
+  }
+
+  data.cars.push({
+    id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
+    make,
+    model,
+    plate,
+    inspection: "Nav veikta",
+    inspectionDate: ""
+  });
+
+  event.target.reset();
+  persist();
 });
-function payFine(id){const f=db.fines.find(x=>x.id===id);if(f&&!f.paid&&confirm('Atzīmēt sodu kā apmaksātu spēles uzskaitē?')){f.paid=true;persist();notify('Sods atzīmēts kā apmaksāts.');}}
-function saveLicense(){
- db.license={name:document.getElementById('driverName').value.trim(),category:document.getElementById('driverCategory').value,status:document.getElementById('driverStatus').value};
- persist();notify('Spēles apliecības dati saglabāti.');
+
+function removeCar(id) {
+  if (!isAdmin) return;
+  const car = data.cars.find(item => item.id === id);
+  if (!car || !confirm("Vai tiešām dzēst šo transportlīdzekli?")) return;
+  data.cars = data.cars.filter(item => item.id !== id);
+  persist();
 }
-function saveProfile(){
- db.profile=document.getElementById('profileName').value.trim();persist();notify('Spēles profils saglabāts.');
+
+document.getElementById("inspectionForm").addEventListener("submit", event => {
+  event.preventDefault();
+  if (!isAdmin) return;
+
+  const id = document.getElementById("inspectionCar").value;
+  const car = data.cars.find(item => item.id === id);
+  if (!car) {
+    alert("Vispirms reģistrē transportlīdzekli.");
+    return;
+  }
+
+  car.inspection = document.getElementById("inspectionStatus").value;
+  car.inspectionDate = document.getElementById("inspectionDate").value;
+  persist();
+});
+
+document.getElementById("licenseForm").addEventListener("submit", event => {
+  event.preventDefault();
+  if (!isAdmin) return;
+
+  data.license = {
+    name: document.getElementById("licenseName").value.trim(),
+    number: document.getElementById("licenseNumber").value.trim(),
+    category: document.getElementById("licenseCategory").value,
+    status: document.getElementById("licenseStatus").value
+  };
+  persist();
+});
+
+document.getElementById("fineForm").addEventListener("submit", event => {
+  event.preventDefault();
+  if (!isAdmin) return;
+
+  data.fines.push({
+    id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
+    person: document.getElementById("finePerson").value.trim(),
+    reason: document.getElementById("fineReason").value.trim(),
+    amount: Number(document.getElementById("fineAmount").value),
+    status: "Neapmaksāts"
+  });
+
+  event.target.reset();
+  persist();
+});
+
+function payFine(id) {
+  if (!isAdmin) return;
+  const fine = data.fines.find(item => item.id === id);
+  if (!fine) return;
+  fine.status = fine.status === "Apmaksāts" ? "Neapmaksāts" : "Apmaksāts";
+  persist();
 }
-function render(){
- document.getElementById('carRows').innerHTML=db.cars.length?db.cars.map(c=>`<tr><td>${safe(c.name)}</td><td>${safe(c.plate)}</td><td>${safe(c.year)}</td><td><button class="btn" onclick="removeCar(${c.id})">Dzēst</button></td></tr>`).join(''):'<tr><td colspan="4">Nav pievienotu transportlīdzekļu.</td></tr>';
- document.getElementById('inspectionRows').innerHTML=db.cars.length?db.cars.map(c=>`<tr><td>${safe(c.name)}</td><td>${safe(c.plate)}</td><td>${safe(c.inspection)}</td><td><button class="btn" onclick="setInspection(${c.id})">Mainīt statusu</button></td></tr>`).join(''):'<tr><td colspan="4">Nav transportlīdzekļu datu.</td></tr>';
- document.getElementById('fineRows').innerHTML=db.fines.length?db.fines.map(f=>`<tr><td>${safe(f.reason)}</td><td>${f.amount.toFixed(2)} €</td><td>${f.paid?'Apmaksāts':'Neapmaksāts'}</td><td>${f.paid?'—':`<button class="btn" onclick="payFine(${f.id})">Apmaksāt spēlē</button>`}</td></tr>`).join(''):'<tr><td colspan="4">Sodu nav.</td></tr>';
- document.getElementById('driverName').value=db.license.name||'';
- document.getElementById('driverCategory').value=db.license.category||'B';
- document.getElementById('driverStatus').value=db.license.status||'Nav iegūta';
- document.getElementById('profileName').value=db.profile||'';
- document.getElementById('profileInfo').textContent=db.profile?'Profils: '+db.profile:'Profils vēl nav saglabāts.';
+
+function deleteFine(id) {
+  if (!isAdmin) return;
+  if (!confirm("Vai dzēst šo sodu?")) return;
+  data.fines = data.fines.filter(fine => fine.id !== id);
+  persist();
 }
-render();
-</script>
-</body>
-</html>
+
+document.getElementById("profileForm").addEventListener("submit", event => {
+  event.preventDefault();
+  if (!isAdmin) return;
+
+  data.profile = {
+    name: document.getElementById("profileName").value.trim(),
+    id: document.getElementById("profileId").value.trim(),
+    role: document.getElementById("profileRole").value.trim()
+  };
+  persist();
+});
+
+function render() {
+  document.querySelectorAll("#carAdmin, #inspectionAdmin, #licenseAdmin, #fineAdmin, #profileAdmin")
+    .forEach(element => element.classList.toggle("hidden", !isAdmin));
+
+  document.getElementById("carActionsHead").classList.toggle("hidden", !isAdmin);
+  document.getElementById("fineActionsHead").classList.toggle("hidden", !isAdmin);
+
+  document.getElementById("carCount").textContent = data.cars.length;
+  document.getElementById("fineCount").textContent =
+    data.fines.filter(fine => fine.status !== "Apmaksāts").length;
+  document.getElementById("inspectionCount").textContent =
+    data.cars.filter(car => car.inspection === "Derīga").length;
+
+  document.getElementById("carRows").innerHTML = data.cars.length
+    ? data.cars.map(car => `
+      <tr>
+        <td>${escapeHTML(car.make)}</td>
+        <td>${escapeHTML(car.model)}</td>
+        <td>${escapeHTML(car.plate)}</td>
+        <td>${inspectionBadge(car.inspection)}</td>
+        ${isAdmin ? `<td><button class="danger" onclick="removeCar('${escapeHTML(car.id)}')">Dzēst</button></td>` : ""}
+      </tr>`).join("")
+    : `<tr><td colspan="${isAdmin ? 5 : 4}" class="empty">Transportlīdzekļu vēl nav.</td></tr>`;
+
+  document.getElementById("inspectionCar").innerHTML = data.cars.length
+    ? data.cars.map(car => `<option value="${escapeHTML(car.id)}">${escapeHTML(car.plate)} — ${escapeHTML(car.make)} ${escapeHTML(car.model)}</option>`).join("")
+    : `<option value="">Nav reģistrētu transportlīdzekļu</option>`;
+
+  document.getElementById("inspectionRows").innerHTML = data.cars.length
+    ? data.cars.map(car => `
+      <tr>
+        <td>${escapeHTML(car.make)} ${escapeHTML(car.model)}</td>
+        <td>${escapeHTML(car.plate)}</td>
+        <td>${inspectionBadge(car.inspection)}</td>
+        <td>${escapeHTML(car.inspectionDate || "Nav norādīts")}</td>
+      </tr>`).join("")
+    : `<tr><td colspan="4" class="empt
