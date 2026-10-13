@@ -2,92 +2,37 @@
 <html lang="lv">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CSDD | CPM1 Roleplay</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CPM1 Roleplay | CSDD</title>
 <style>
 :root {
   --blue: #0756a5;
-  --dark: #17324d;
-  --bg: #f2f5f8;
-  --white: #fff;
+  --blue-dark: #063d76;
+  --bg: #f1f4f8;
   --border: #dce3eb;
-  --green: #198754;
-  --red: #c62828;
+  --text: #243447;
+  --green: #18864b;
+  --red: #c52c36;
 }
 * { box-sizing: border-box; }
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, sans-serif;
   background: var(--bg);
-  color: #253447;
+  color: var(--text);
 }
 header {
   background: var(--blue);
   color: white;
   padding: 20px 5%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.brand { font-size: 25px; font-weight: bold; }
-.brand small {
-  display: block;
-  font-size: 12px;
-  font-weight: normal;
-  margin-top: 5px;
-}
-header button {
-  background: white;
-  color: var(--blue);
-}
-.layout {
-  display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  min-height: calc(100vh - 80px);
-}
-nav {
-  background: white;
-  border-right: 1px solid var(--border);
-  padding: 18px 12px;
-}
-nav button {
-  display: block;
-  width: 100%;
-  text-align: left;
-  background: transparent;
-  color: #34465a;
-  margin-bottom: 5px;
-}
-nav button.active {
-  background: #e8f1fb;
-  color: var(--blue);
-  font-weight: bold;
-}
-main { padding: 28px; min-width: 0; }
-h1 { margin-top: 0; font-size: 28px; }
-h2 { font-size: 19px; margin-top: 0; }
-.muted { color: #68788a; font-size: 14px; line-height: 1.5; }
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
   gap: 15px;
-  margin: 20px 0;
+  flex-wrap: wrap;
 }
-.card, .panel {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 18px;
-}
-.card strong {
-  display: block;
-  font-size: 28px;
-  margin-top: 12px;
-  color: var(--blue);
-}
+.logo { font-size: 28px; font-weight: bold; }
+.logo span { font-size: 12px; display: block; margin-top: 5px; font-weight: normal; }
 button {
   border: 0;
   border-radius: 6px;
@@ -98,103 +43,83 @@ button {
   font-size: 14px;
 }
 button:hover { opacity: .88; }
-button.secondary { background: #e8edf3; color: #26394d; }
-button.danger { background: var(--red); }
-button.success { background: var(--green); }
+button.light { background: white; color: var(--blue); }
+button.gray { background: #e8edf3; color: #243447; }
+button.red { background: var(--red); }
+button.green { background: var(--green); }
+.layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); min-height: 80vh; }
+nav { background: white; padding: 15px 10px; border-right: 1px solid var(--border); }
+nav button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 5px;
+  background: transparent;
+  color: var(--text);
+}
+nav button.active { background: #e7f0fc; color: var(--blue); font-weight: bold; }
+main { padding: 28px; min-width: 0; }
+h1 { margin-top: 0; font-size: 28px; }
+h2 { font-size: 19px; margin-top: 0; }
+.muted { color: #6d7b8a; font-size: 14px; line-height: 1.5; }
+.panel, .card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 18px;
+}
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; margin: 20px 0; }
+.card strong { display: block; font-size: 28px; color: var(--blue); margin-top: 12px; }
 input, select, textarea {
   width: 100%;
-  padding: 11px;
-  border: 1px solid #ccd6e0;
+  border: 1px solid #cbd5df;
   border-radius: 6px;
-  font-size: 14px;
+  padding: 11px;
   margin: 6px 0 14px;
+  font-size: 14px;
   background: white;
 }
 label { font-size: 13px; font-weight: bold; }
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 14px;
-}
-.form-grid .full { grid-column: 1 / -1; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+.full { grid-column: 1 / -1; }
 .table-wrap { overflow-x: auto; }
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
-  min-width: 560px;
-}
-th, td {
-  padding: 13px 12px;
-  text-align: left;
-  border-bottom: 1px solid var(--border);
-  font-size: 14px;
-}
+table { width: 100%; border-collapse: collapse; min-width: 530px; }
+th, td { text-align: left; padding: 12px; border-bottom: 1px solid var(--border); font-size: 14px; }
 th { background: #f5f8fb; }
-.badge {
-  display: inline-block;
-  padding: 5px 9px;
-  border-radius: 20px;
-  font-size: 12px;
-  background: #e7f6ec;
-  color: #187544;
-}
-.badge.red { background: #ffebeb; color: var(--red); }
-.badge.gray { background: #e9edf1; color: #526172; }
+.badge { display: inline-block; border-radius: 20px; padding: 5px 9px; font-size: 12px; background: #e5f6eb; color: #176c3c; }
+.badge.red { background: #ffebeb; color: #b3212c; }
+.badge.gray { background: #edf0f3; color: #596675; }
 .hidden { display: none !important; }
-.notice {
-  background: #fff8e5;
-  border: 1px solid #f0dda1;
-  padding: 12px;
-  border-radius: 7px;
-  font-size: 13px;
-  line-height: 1.5;
-  margin-bottom: 18px;
-}
-footer {
-  padding: 18px;
-  text-align: center;
-  font-size: 12px;
-  color: #738195;
-}
-.actions { display: flex; gap: 6px; flex-wrap: wrap; }
-.empty { padding: 24px; text-align: center; color: #738195; }
+.notice { background: #fff8e5; border: 1px solid #f0dda1; border-radius: 7px; padding: 12px; font-size: 13px; line-height: 1.5; margin-bottom: 18px; }
+.empty { text-align: center; padding: 24px; color: #778494; }
+footer { text-align: center; padding: 20px; color: #738195; font-size: 12px; }
+.actions { display: flex; flex-wrap: wrap; gap: 6px; }
 @media (max-width: 760px) {
   .layout { grid-template-columns: 1fr; }
-  nav {
-    display: flex;
-    overflow-x: auto;
-    gap: 5px;
-    border-right: 0;
-    border-bottom: 1px solid var(--border);
-    padding: 10px;
-  }
-  nav button {
-    white-space: nowrap;
-    width: auto;
-    margin: 0;
-  }
+  nav { display: flex; overflow-x: auto; gap: 5px; border-right: 0; border-bottom: 1px solid var(--border); }
+  nav button { width: auto; white-space: nowrap; }
   main { padding: 18px 12px; }
   .cards { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }
-  .form-grid .full { grid-column: auto; }
+  .full { grid-column: auto; }
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="brand">
+  <div class="logo">
     CSDD
-    <small>CPM1 Roleplay · Transportlīdzekļu reģistrs</small>
+    <span>CPM1 Roleplay · Transportlīdzekļu reģistrs</span>
   </div>
-  <button id="adminButton" onclick="toggleAdmin()">Administratora pieslēgšanās</button>
+  <button class="light" id="adminButton" onclick="toggleAdmin()">Administratora pieslēgšanās</button>
 </header>
 
 <div class="layout">
   <nav>
     <button class="active" data-page="home" onclick="showPage('home',this)">Sākums</button>
-    <button data-page="cars" onclick="showPage('cars',this)">Mani transportlīdzekļi</button>
+    <button data-page="cars" onclick="showPage('cars',this)">Transportlīdzekļi</button>
     <button data-page="inspection" onclick="showPage('inspection',this)">Tehniskā apskate</button>
     <button data-page="license" onclick="showPage('license',this)">Vadītāja apliecība</button>
     <button data-page="fines" onclick="showPage('fines',this)">Sodi</button>
@@ -203,24 +128,21 @@ footer {
 
   <main>
     <div class="notice">
-      <strong>CPM1 Roleplay informācija:</strong> šī ir neoficiāla lomu spēles mājaslapa.
-      Tā nav Latvijas valsts iestādes CSDD oficiālā vietne.
+      <strong>CPM1 Roleplay:</strong> šī ir neoficiāla lomu spēles vietne, kas nav saistīta ar Latvijas valsts CSDD.
     </div>
 
     <section id="page-home">
       <h1>Vadības panelis</h1>
-      <p class="muted">Transportlīdzekļu un vadītāja informācija CPM1 Roleplay serverī.</p>
-
+      <p class="muted">Transportlīdzekļu un vadītāju informācija CPM1 Roleplay serverī.</p>
       <div class="cards">
-        <div class="card">Reģistrētie transportlīdzekļi<strong id="carCount">0</strong></div>
-        <div class="card">Aktīvie sodi<strong id="fineCount">0</strong></div>
-        <div class="card">Tehniskā apskate<strong id="inspectionCount">0</strong></div>
+        <div class="card">Transportlīdzekļi<strong id="carCount">0</strong></div>
+        <div class="card">Neapmaksāti sodi<strong id="fineCount">0</strong></div>
+        <div class="card">Derīga tehniskā apskate<strong id="inspectionCount">0</strong></div>
       </div>
-
       <div class="panel">
-        <h2>Sistēmas informācija</h2>
-        <p id="welcomeText">Laipni lūdzam CPM1 Roleplay transportlīdzekļu reģistrā!</p>
-        <p class="muted">Administrators var pārvaldīt transportlīdzekļus, apskates, apliecības, sodus un profila datus.</p>
+        <h2>Sveicināti CPM1 Roleplay CSDD!</h2>
+        <p id="welcomeText">Šeit var apskatīt lomu spēles transportlīdzekļu un vadītāju informāciju.</p>
+        <p class="muted">Izmanto izvēlni, lai apskatītu reģistrētos transportlīdzekļus, tehnisko apskati, apliecības un sodus.</p>
       </div>
     </section>
 
@@ -230,28 +152,18 @@ footer {
         <h2>Reģistrēt transportlīdzekli</h2>
         <form id="carForm">
           <div class="form-grid">
-            <div>
-              <label for="carMake">Marka</label>
-              <input id="carMake" required placeholder="Piem., BMW">
-            </div>
-            <div>
-              <label for="carModel">Modelis</label>
-              <input id="carModel" required placeholder="Piem., 530d">
-            </div>
-            <div class="full">
-              <label for="carPlate">Valsts reģistrācijas numurs</label>
-              <input id="carPlate" required placeholder="Piem., AB-1234">
-            </div>
+            <div><label for="carMake">Marka</label><input id="carMake" required placeholder="BMW"></div>
+            <div><label for="carModel">Modelis</label><input id="carModel" required placeholder="530d"></div>
+            <div class="full"><label for="carPlate">Reģistrācijas numurs</label><input id="carPlate" required placeholder="AB-1234"></div>
           </div>
           <button type="submit">Pievienot transportlīdzekli</button>
         </form>
       </div>
-
       <div class="panel">
         <h2>Reģistrēto transportlīdzekļu saraksts</h2>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Marka</th><th>Modelis</th><th>Reģistrācijas numurs</th><th>Tehniskā apskate</th><th id="carActionsHead" class="hidden">Darbības</th></tr></thead>
+            <thead><tr><th>Marka</th><th>Modelis</th><th>Numurs</th><th>Tehniskā apskate</th><th id="carActionHeader" class="hidden">Darbības</th></tr></thead>
             <tbody id="carRows"></tbody>
           </table>
         </div>
@@ -261,19 +173,15 @@ footer {
     <section id="page-inspection" class="hidden">
       <h1>Tehniskā apskate</h1>
       <div id="inspectionAdmin" class="panel hidden">
-        <h2>Mainīt tehniskās apskates statusu</h2>
+        <h2>Mainīt apskates statusu</h2>
         <form id="inspectionForm">
-          <label for="inspectionCar">Transportlīdzeklis</label>
-          <select id="inspectionCar" required></select>
+          <label for="inspectionCar">Transportlīdzeklis</label><select id="inspectionCar" required></select>
           <label for="inspectionStatus">Statuss</label>
           <select id="inspectionStatus">
-            <option value="Derīga">Derīga</option>
-            <option value="Nav derīga">Nav derīga</option>
-            <option value="Nav veikta">Nav veikta</option>
+            <option>Derīga</option><option>Nav derīga</option><option>Nav veikta</option>
           </select>
-          <label for="inspectionDate">Derīguma termiņš</label>
-          <input id="inspectionDate" type="date">
-          <button type="submit">Saglabāt statusu</button>
+          <label for="inspectionDate">Derīga līdz</label><input id="inspectionDate" type="date">
+          <button type="submit">Saglabāt</button>
         </form>
       </div>
       <div class="panel">
@@ -290,22 +198,13 @@ footer {
     <section id="page-license" class="hidden">
       <h1>Vadītāja apliecība</h1>
       <div id="licenseAdmin" class="panel hidden">
-        <h2>Vadītāja apliecības dati</h2>
+        <h2>Rediģēt apliecību</h2>
         <form id="licenseForm">
-          <label for="licenseName">Vadītāja vārds, uzvārds (RP)</label>
-          <input id="licenseName" placeholder="Piem., Jānis Bērziņš">
-          <label for="licenseNumber">Apliecības numurs (RP)</label>
-          <input id="licenseNumber" placeholder="Piem., CPM1-001">
+          <label for="licenseName">Vadītāja vārds, uzvārds (RP)</label><input id="licenseName" placeholder="Jānis Bērziņš">
+          <label for="licenseNumber">Apliecības numurs (RP)</label><input id="licenseNumber" placeholder="CPM1-001">
           <label for="licenseCategory">Kategorija</label>
-          <select id="licenseCategory">
-            <option>B</option><option>A</option><option>BE</option>
-            <option>C</option><option>CE</option><option>AM</option>
-            <option>A, B</option><option>A, B, C</option>
-          </select>
-          <label for="licenseStatus">Statuss</label>
-          <select id="licenseStatus">
-            <option>Derīga</option><option>Apturēta</option><option>Anulēta</option>
-          </select>
+          <select id="licenseCategory"><option>B</option><option>A</option><option>BE</option><option>C</option><option>CE</option><option>AM</option><option>A, B</option><option>A, B, C</option></select>
+          <label for="licenseStatus">Statuss</label><select id="licenseStatus"><option>Derīga</option><option>Apturēta</option><option>Anulēta</option></select>
           <button type="submit">Saglabāt apliecību</button>
         </form>
       </div>
@@ -323,12 +222,9 @@ footer {
       <div id="fineAdmin" class="panel hidden">
         <h2>Reģistrēt sodu</h2>
         <form id="fineForm">
-          <label for="finePerson">Personas vārds, uzvārds (RP)</label>
-          <input id="finePerson" required placeholder="Piem., Jānis Bērziņš">
-          <label for="fineReason">Pārkāpums</label>
-          <input id="fineReason" required placeholder="Piem., ātruma pārsniegšana">
-          <label for="fineAmount">Soda summa (€ RP)</label>
-          <input id="fineAmount" type="number" min="0" required placeholder="100">
+          <label for="finePerson">Personas vārds, uzvārds (RP)</label><input id="finePerson" required placeholder="Jānis Bērziņš">
+          <label for="fineReason">Pārkāpums</label><input id="fineReason" required placeholder="Ātruma pārsniegšana">
+          <label for="fineAmount">Soda summa (€ RP)</label><input id="fineAmount" type="number" min="0" required placeholder="100">
           <button type="submit">Pievienot sodu</button>
         </form>
       </div>
@@ -336,7 +232,7 @@ footer {
         <h2>Sodu saraksts</h2>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Persona</th><th>Pārkāpums</th><th>Summa</th><th>Statuss</th><th id="fineActionsHead" class="hidden">Darbības</th></tr></thead>
+            <thead><tr><th>Persona</th><th>Pārkāpums</th><th>Summa</th><th>Statuss</th><th id="fineActionHeader" class="hidden">Darbības</th></tr></thead>
             <tbody id="fineRows"></tbody>
           </table>
         </div>
@@ -346,19 +242,16 @@ footer {
     <section id="page-profile" class="hidden">
       <h1>Profils</h1>
       <div id="profileAdmin" class="panel hidden">
-        <h2>Profila informācija</h2>
+        <h2>Rediģēt profilu</h2>
         <form id="profileForm">
-          <label for="profileName">Vārds, uzvārds (RP)</label>
-          <input id="profileName" placeholder="Piem., Jānis Bērziņš">
-          <label for="profileId">Spēles ID</label>
-          <input id="profileId" placeholder="Piem., 12345">
-          <label for="profileRole">Amats serverī</label>
-          <input id="profileRole" placeholder="Piem., Iedzīvotājs">
+          <label for="profileName">Vārds, uzvārds (RP)</label><input id="profileName" placeholder="Jānis Bērziņš">
+          <label for="profileId">Spēles ID</label><input id="profileId" placeholder="12345">
+          <label for="profileRole">Amats serverī</label><input id="profileRole" placeholder="Iedzīvotājs">
           <button type="submit">Saglabāt profilu</button>
         </form>
       </div>
       <div class="panel">
-        <h2>Profila dati</h2>
+        <h2>Profila informācija</h2>
         <p><strong>Vārds, uzvārds:</strong> <span id="displayProfileName">Nav norādīts</span></p>
         <p><strong>Spēles ID:</strong> <span id="displayProfileId">Nav norādīts</span></p>
         <p><strong>Amats:</strong> <span id="displayProfileRole">Nav norādīts</span></p>
@@ -366,261 +259,236 @@ footer {
     </section>
 
     <section id="page-admin" class="hidden">
-      <h1>Administratora piekļuve</h1>
+      <h1>Administratora pieslēgšanās</h1>
       <div class="panel">
-        <h2>Pieslēgties</h2>
-        <p class="muted">Ievadi administratora paroli, lai atvērtu rediģēšanas iespējas šajā pārlūkā.</p>
         <form id="loginForm">
-          <label for="adminPassword">Parole</label>
-          <input id="adminPassword" type="password" required autocomplete="current-password">
+          <label for="adminPassword">Parole</label><input id="adminPassword" type="password" required>
           <button type="submit">Pieslēgties</button>
           <p id="loginMessage" class="muted"></p>
         </form>
       </div>
     </section>
-
   </main>
 </div>
 
-<footer>CPM1 Roleplay · Neoficiāla lomu spēles vietne · Nav saistīta ar valsts CSDD</footer>
+<footer>CPM1 Roleplay · Neoficiāla lomu spēles vietne</footer>
 
 <script>
 /*
-  DEMO VERSIJA GITHUB PAGES.
-  Parole un dati glabājas klienta pusē. Tas NAV drošs servera autentifikācijas risinājums.
-  Nomaini paroli zemāk, bet neizmanto šo pieeju īstu datu aizsardzībai.
+  DEMO: parole un dati ir klienta pusē un nav droši pret koda pārbaudi.
+  Dati tiek glabāti šajā pārlūkā, nevis kopīgā datubāzē.
 */
 const ADMIN_PASSWORD = "NomainiSoParoli123";
 
-const defaultData = {
+const emptyData = {
   cars: [],
   fines: [],
-  license: {
-    name: "",
-    number: "",
-    category: "B",
-    status: "Derīga"
-  },
-  profile: {
-    name: "",
-    id: "",
-    role: ""
-  }
+  license: {name:"", number:"", category:"B", status:"Derīga"},
+  profile: {name:"", id:"", role:""}
 };
+
+function clone(value) {
+  return JSON.parse(JSON.stringify(value));
+}
 
 function loadData() {
   try {
     const saved = JSON.parse(localStorage.getItem("cpm1CsddData"));
-    if (!saved || typeof saved !== "object") return structuredClone(defaultData);
+    if (!saved || typeof saved !== "object") return clone(emptyData);
     return {
-      ...structuredClone(defaultData),
-      ...saved,
       cars: Array.isArray(saved.cars) ? saved.cars : [],
       fines: Array.isArray(saved.fines) ? saved.fines : [],
-      license: {...defaultData.license, ...(saved.license || {})},
-      profile: {...defaultData.profile, ...(saved.profile || {})}
+      license: {...emptyData.license, ...(saved.license || {})},
+      profile: {...emptyData.profile, ...(saved.profile || {})}
     };
   } catch {
-    return structuredClone(defaultData);
+    return clone(emptyData);
   }
 }
 
 let data = loadData();
 let isAdmin = false;
 
-function persist() {
+function esc(value) {
+  return String(value ?? "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  })[c]);
+}
+
+function save() {
   localStorage.setItem("cpm1CsddData", JSON.stringify(data));
   render();
 }
 
-function escapeHTML(value) {
-  return String(value ?? "").replace(/[&<>"']/g, char => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  })[char]);
-}
-
 function showPage(page, button) {
-  document.querySelectorAll("main section").forEach(section => section.classList.add("hidden"));
-  const target = document.getElementById("page-" + page);
-  if (target) target.classList.remove("hidden");
-
-  document.querySelectorAll("nav button").forEach(item => item.classList.remove("active"));
+  document.querySelectorAll("main section").forEach(s => s.classList.add("hidden"));
+  document.getElementById("page-" + page).classList.remove("hidden");
+  document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
   if (button) button.classList.add("active");
 }
 
 function toggleAdmin() {
   if (isAdmin) {
     isAdmin = false;
-    render();
     document.getElementById("adminButton").textContent = "Administratora pieslēgšanās";
-    alert("Administratora režīms izslēgts.");
-    return;
+    render();
+    showPage("home", document.querySelector('[data-page="home"]'));
+  } else {
+    showPage("admin", null);
   }
-  showPage("admin", null);
 }
 
-document.getElementById("loginForm").addEventListener("submit", event => {
-  event.preventDefault();
-  const password = document.getElementById("adminPassword").value;
-  const message = document.getElementById("loginMessage");
-
-  if (password === ADMIN_PASSWORD) {
+document.getElementById("loginForm").addEventListener("submit", e => {
+  e.preventDefault();
+  if (document.getElementById("adminPassword").value === ADMIN_PASSWORD) {
     isAdmin = true;
     document.getElementById("adminPassword").value = "";
-    message.textContent = "";
+    document.getElementById("loginMessage").textContent = "";
     document.getElementById("adminButton").textContent = "Iziet no administratora";
     render();
-    showPage("home", document.querySelector('nav button[data-page="home"]'));
+    showPage("home", document.querySelector('[data-page="home"]'));
   } else {
-    message.textContent = "Nepareiza parole.";
+    document.getElementById("loginMessage").textContent = "Nepareiza parole.";
   }
 });
 
-document.getElementById("carForm").addEventListener("submit", event => {
-  event.preventDefault();
+document.getElementById("carForm").addEventListener("submit", e => {
+  e.preventDefault();
   if (!isAdmin) return;
-
   const make = document.getElementById("carMake").value.trim();
   const model = document.getElementById("carModel").value.trim();
   const plate = document.getElementById("carPlate").value.trim().toUpperCase();
-
   if (!make || !model || !plate) return;
-  if (data.cars.some(car => car.plate.toLowerCase() === plate.toLowerCase())) {
-    alert("Šāds reģistrācijas numurs jau eksistē.");
+  if (data.cars.some(c => c.plate.toLowerCase() === plate.toLowerCase())) {
+    alert("Šis reģistrācijas numurs jau eksistē.");
     return;
   }
-
   data.cars.push({
-    id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
-    make,
-    model,
-    plate,
-    inspection: "Nav veikta",
-    inspectionDate: ""
+    id: String(Date.now()) + Math.random().toString(16).slice(2),
+    make, model, plate, inspection:"Nav veikta", inspectionDate:""
   });
-
-  event.target.reset();
-  persist();
+  e.target.reset();
+  save();
 });
 
 function removeCar(id) {
-  if (!isAdmin) return;
-  const car = data.cars.find(item => item.id === id);
-  if (!car || !confirm("Vai tiešām dzēst šo transportlīdzekli?")) return;
-  data.cars = data.cars.filter(item => item.id !== id);
-  persist();
+  if (!isAdmin || !confirm("Vai dzēst šo transportlīdzekli?")) return;
+  data.cars = data.cars.filter(c => c.id !== id);
+  save();
 }
 
-document.getElementById("inspectionForm").addEventListener("submit", event => {
-  event.preventDefault();
+document.getElementById("inspectionForm").addEventListener("submit", e => {
+  e.preventDefault();
   if (!isAdmin) return;
-
-  const id = document.getElementById("inspectionCar").value;
-  const car = data.cars.find(item => item.id === id);
-  if (!car) {
-    alert("Vispirms reģistrē transportlīdzekli.");
-    return;
-  }
-
+  const car = data.cars.find(c => c.id === document.getElementById("inspectionCar").value);
+  if (!car) { alert("Vispirms pievieno transportlīdzekli."); return; }
   car.inspection = document.getElementById("inspectionStatus").value;
   car.inspectionDate = document.getElementById("inspectionDate").value;
-  persist();
+  save();
 });
 
-document.getElementById("licenseForm").addEventListener("submit", event => {
-  event.preventDefault();
+document.getElementById("licenseForm").addEventListener("submit", e => {
+  e.preventDefault();
   if (!isAdmin) return;
-
   data.license = {
     name: document.getElementById("licenseName").value.trim(),
     number: document.getElementById("licenseNumber").value.trim(),
     category: document.getElementById("licenseCategory").value,
     status: document.getElementById("licenseStatus").value
   };
-  persist();
+  save();
 });
 
-document.getElementById("fineForm").addEventListener("submit", event => {
-  event.preventDefault();
+document.getElementById("fineForm").addEventListener("submit", e => {
+  e.preventDefault();
   if (!isAdmin) return;
-
   data.fines.push({
-    id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
+    id: String(Date.now()) + Math.random().toString(16).slice(2),
     person: document.getElementById("finePerson").value.trim(),
     reason: document.getElementById("fineReason").value.trim(),
     amount: Number(document.getElementById("fineAmount").value),
     status: "Neapmaksāts"
   });
-
-  event.target.reset();
-  persist();
+  e.target.reset();
+  save();
 });
 
-function payFine(id) {
+function toggleFine(id) {
   if (!isAdmin) return;
-  const fine = data.fines.find(item => item.id === id);
+  const fine = data.fines.find(f => f.id === id);
   if (!fine) return;
   fine.status = fine.status === "Apmaksāts" ? "Neapmaksāts" : "Apmaksāts";
-  persist();
+  save();
 }
 
 function deleteFine(id) {
-  if (!isAdmin) return;
-  if (!confirm("Vai dzēst šo sodu?")) return;
-  data.fines = data.fines.filter(fine => fine.id !== id);
-  persist();
+  if (!isAdmin || !confirm("Vai dzēst šo sodu?")) return;
+  data.fines = data.fines.filter(f => f.id !== id);
+  save();
 }
 
-document.getElementById("profileForm").addEventListener("submit", event => {
-  event.preventDefault();
+document.getElementById("profileForm").addEventListener("submit", e => {
+  e.preventDefault();
   if (!isAdmin) return;
-
   data.profile = {
     name: document.getElementById("profileName").value.trim(),
     id: document.getElementById("profileId").value.trim(),
     role: document.getElementById("profileRole").value.trim()
   };
-  persist();
+  save();
 });
 
-function render() {
-  document.querySelectorAll("#carAdmin, #inspectionAdmin, #licenseAdmin, #fineAdmin, #profileAdmin")
-    .forEach(element => element.classList.toggle("hidden", !isAdmin));
+function inspectionBadge(status) {
+  if (status === "Derīga") return '<span class="badge">Derīga</span>';
+  if (status === "Nav derīga") return '<span class="badge red">Nav derīga</span>';
+  return '<span class="badge gray">Nav veikta</span>';
+}
 
-  document.getElementById("carActionsHead").classList.toggle("hidden", !isAdmin);
-  document.getElementById("fineActionsHead").classList.toggle("hidden", !isAdmin);
+function render() {
+  ["carAdmin","inspectionAdmin","licenseAdmin","fineAdmin","profileAdmin"].forEach(id => {
+    document.getElementById(id).classList.toggle("hidden", !isAdmin);
+  });
+  document.getElementById("carActionHeader").classList.toggle("hidden", !isAdmin);
+  document.getElementById("fineActionHeader").classList.toggle("hidden", !isAdmin);
 
   document.getElementById("carCount").textContent = data.cars.length;
-  document.getElementById("fineCount").textContent =
-    data.fines.filter(fine => fine.status !== "Apmaksāts").length;
-  document.getElementById("inspectionCount").textContent =
-    data.cars.filter(car => car.inspection === "Derīga").length;
+  document.getElementById("fineCount").textContent = data.fines.filter(f => f.status !== "Apmaksāts").length;
+  document.getElementById("inspectionCount").textContent = data.cars.filter(c => c.inspection === "Derīga").length;
 
-  document.getElementById("carRows").innerHTML = data.cars.length
-    ? data.cars.map(car => `
-      <tr>
-        <td>${escapeHTML(car.make)}</td>
-        <td>${escapeHTML(car.model)}</td>
-        <td>${escapeHTML(car.plate)}</td>
-        <td>${inspectionBadge(car.inspection)}</td>
-        ${isAdmin ? `<td><button class="danger" onclick="removeCar('${escapeHTML(car.id)}')">Dzēst</button></td>` : ""}
-      </tr>`).join("")
-    : `<tr><td colspan="${isAdmin ? 5 : 4}" class="empty">Transportlīdzekļu vēl nav.</td></tr>`;
+  document.getElementById("carRows").innerHTML = data.cars.length ? data.cars.map(c => `
+    <tr>
+      <td>${esc(c.make)}</td><td>${esc(c.model)}</td><td>${esc(c.plate)}</td>
+      <td>${inspectionBadge(c.inspection)}</td>
+      ${isAdmin ? `<td><button class="red" onclick="removeCar('${esc(c.id)}')">Dzēst</button></td>` : ""}
+    </tr>`).join("") : `<tr><td colspan="${isAdmin?5:4}" class="empty">Transportlīdzekļu vēl nav.</td></tr>`;
 
   document.getElementById("inspectionCar").innerHTML = data.cars.length
-    ? data.cars.map(car => `<option value="${escapeHTML(car.id)}">${escapeHTML(car.plate)} — ${escapeHTML(car.make)} ${escapeHTML(car.model)}</option>`).join("")
-    : `<option value="">Nav reģistrētu transportlīdzekļu</option>`;
+    ? data.cars.map(c => `<option value="${esc(c.id)}">${esc(c.plate)} — ${esc(c.make)} ${esc(c.model)}</option>`).join("")
+    : '<option value="">Nav transportlīdzekļu</option>';
 
-  document.getElementById("inspectionRows").innerHTML = data.cars.length
-    ? data.cars.map(car => `
-      <tr>
-        <td>${escapeHTML(car.make)} ${escapeHTML(car.model)}</td>
-        <td>${escapeHTML(car.plate)}</td>
-        <td>${inspectionBadge(car.inspection)}</td>
-        <td>${escapeHTML(car.inspectionDate || "Nav norādīts")}</td>
-      </tr>`).join("")
-    : `<tr><td colspan="4" class="empt
+  document.getElementById("inspectionRows").innerHTML = data.cars.length ? data.cars.map(c => `
+    <tr><td>${esc(c.make)} ${esc(c.model)}</td><td>${esc(c.plate)}</td>
+    <td>${inspectionBadge(c.inspection)}</td><td>${esc(c.inspectionDate || "Nav norādīts")}</td></tr>`
+  ).join("") : '<tr><td colspan="4" class="empty">Apskašu datu vēl nav.</td></tr>';
+
+  document.getElementById("fineRows").innerHTML = data.fines.length ? data.fines.map(f => `
+    <tr>
+      <td>${esc(f.person)}</td><td>${esc(f.reason)}</td><td>${Number(f.amount).toFixed(2)} €</td>
+      <td>${f.status === "Apmaksāts" ? '<span class="badge">Apmaksāts</span>' : '<span class="badge red">Neapmaksāts</span>'}</td>
+      ${isAdmin ? `<td><div class="actions">
+        <button class="green" onclick="toggleFine('${esc(f.id)}')">${f.status === "Apmaksāts" ? "Atcelt apmaksu" : "Apmaksāt"}</button>
+        <button class="red" onclick="deleteFine('${esc(f.id)}')">Dzēst</button>
+      </div></td>` : ""}
+    </tr>`).join("") : `<tr><td colspan="${isAdmin?5:4}" class="empty">Sodu nav.</td></tr>`;
+
+  const l = data.license;
+  document.getElementById("displayLicenseName").textContent = l.name || "Nav norādīts";
+  document.getElementById("displayLicenseNumber").textContent = l.number || "Nav norādīts";
+  document.getElementById("displayLicenseCategory").textContent = l.category || "Nav norādīta";
+  document.getElementById("displayLicenseStatus").textContent = l.status || "Nav norādīts";
+
+  const p = data.profile;
+  document.getElementById("displayProfileName").textContent = p.name || "Nav norādīts";
+  document.getElementById("displayProfileId").textContent = p.id || "Nav norādīts";
+  document.getElementById("displayProfileRole").textContent = p.role || "Nav norādīts";
+  document.getElementById("welco
